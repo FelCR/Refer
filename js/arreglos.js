@@ -1,6 +1,6 @@
 const usuarios = []
 const categorias = []
-const tech = []
+//const tech = []
 const moda = []
 const belleza = []
 const servicios = []

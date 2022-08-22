@@ -1,5 +1,6 @@
 let productos = [] 
 let productosCarrito = []
+const tech = []
 
 //let listado = document.getElementById("listaProductos");
 
@@ -49,13 +50,13 @@ function iniciarSesion() {
 
 function creoID() { return parseInt(Math.random() * 100000) }
 
-function agregarProductos() {
+/*function agregarProductos() {
     let id = creoID()
     let descripcion = prompt("Ingresa el nombre del Producto:")
     let precio = parseInt(prompt("Ingresa el importe:"))
         productos.push(new Producto(id, descripcion, precio))
         console.table(productos)
-}
+} */
 
 function agregarAlCarrito() {
     let productoCarrito = prompt("¿Que producto le interesa?")
@@ -74,7 +75,7 @@ function generadorAutomatico() {
     productos.push(new Producto(3456, "Lapiz rojo", 10))
 }
 
-generadorAutomatico()
+//generadorAutomatico()
 
 function buscarProductos() {
     let prod = prompt("¿Qué artículo esta buscando?")
@@ -146,4 +147,58 @@ function cargadeProductosTienda() {
     })
 }
 
-//cargadeProductosTienda()
+// CARGA DE PRODUCTOS SEGUN CATEGORÍA
+
+function agregarProductos() {
+    let id = creoID()
+    let prodName = prompt("Ingresa el nombre del Producto:")
+    let prodDesc = prompt("Describa el producto")
+    let precio = parseInt(prompt("Ingresa el importe:"))
+    let prodCat = prompt("Ingrese categoria")
+    let prodStock = parseInt(prompt("¿Cual es el Stock del producto?"))
+    //debugger
+        switch(prodCat) {
+            case "Tecnologia":
+            tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            //console.table(productos)
+            //tech.push(Producto)
+            console.table(tech)
+            break
+            case "Moda":
+            moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(moda)
+            break
+            case "Belleza":
+            belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(belleza)
+            break
+            case "Servicios":
+            servicios.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(servicios)
+            break
+            case "Alimentos":
+            alimentos.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(alimentos)
+            break
+            case "Deportes":
+            deportes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(deportes)
+            break
+            case "Herramientas":
+            herramientas.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(herramientas)
+            break
+            case "Muebles":
+            muebles.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(muebles)
+            break
+            case "Juguetes":
+            juguetes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(juguetes)
+            break
+            case "Libros":
+            libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(libros)
+            break
+        }
+}
