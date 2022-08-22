@@ -1,6 +1,5 @@
-let productos = [] 
-let productosCarrito = []
-const tech = []
+
+
 
 //let listado = document.getElementById("listaProductos");
 
