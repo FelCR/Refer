@@ -1,0 +1,152 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+#headerIndex {
+    background-color: rgb(80, 0, 80);
+    color: white;
+    height: 100px;
+}
+
+.menuPrincipal {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 90%;
+}
+
+.botonCarrito {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 85%;
+}
+
+.addCarrito {
+    margin-top: 150px;
+    margin-left: 250px;
+    
+}
+
+.imagenPerfil {
+    border-radius: 15px;
+}
+
+.offcanvas-title {
+    color: rgb(64, 64, 64);
+}
+.offcanvas-body{
+    color: rgb(64, 64, 64);
+}
+
+.logoRef {
+    font-family: 'Righteous', cursive;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 1%;
+}
+
+.navIndex {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 100%;
+    margin-top: 65px;
+    justify-content: center;
+}
+
+.botonMenu {
+    margin-left: 25px;
+}
+
+.botonMenuPerfil {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+#seccionIndex {
+    display: flex;
+    flex-direction: column;
+}
+
+.bannerIndex {
+    height: 200px;
+    justify-content: center;
+}
+
+.recomendacionesIndex {
+    height: auto;
+    width: 95%;
+    align-self: center;
+    margin-top: 100px;
+}
+
+.nuevoIndex {
+    height: auto;
+    width: 95%;
+    align-self: center;
+    margin-top: 100px;
+}
+
+.publicacionesIndex {
+    height: auto;
+    width: 95%;
+    align-self: center;
+    margin-top: 100px;
+}
+
+.categorias {
+    display: flex;
+    justify-content:center;
+    //background-color: aquamarine;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.catego {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+footer {
+    background-color: rgb(80, 0, 80); 
+    color: white;
+    height: 150px;
+}
+
+
+/*------------------->> RESPONSIVIDAD <<--------------------*/
+@media (max-width: 360px) {
+    #seccionIndexMq2 {display: none;}
+}
+@media (min-width: 360px) {
+    #seccionIndexMq3 {display: none;}
+}
+
+@media (max-width: 412px) {
+    #seccionIndexMq {display: none;}
+}
+@media (min-width: 412px) {
+    #seccionIndexMq2 {display: none;}
+}
+
+@media (max-width: 576px) {}
+@media (min-width: 576px) {}
+
+@media (max-width: 768px) {
+    #seccionIndex {display: none;}
+    .bannerIndex {
+        height: 150px;
+        justify-content: center;
+    }
+}
+@media (min-width: 768px) {
+    #seccionIndexMq {display: none;}
+}
+
+@media (max-width: 992px) {}
+@media (min-width: 992px) {}
+
+@media (max-width: 1200px) {}
+@media (min-width: 1200px) {}
+
+@media (max-width: 1400px) {}
