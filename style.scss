@@ -7,6 +7,32 @@
     color: white;
     height: 100px;
 }
+#headerPortada {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.278)), url(Pictures/tienda.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
+    background-attachment: fixed;
+    background-position: center;
+    height: 400px;
+}
+
+.headerPortada2 {
+    background-color: rgb(80, 0, 80);
+    color: white;
+    height: 200px;
+}
+
+.botonLogin {
+    text-align: center;
+    margin-top: 120px;  
+}
+
+.botonRegistrarse {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 .menuPrincipal {
     position: absolute;
