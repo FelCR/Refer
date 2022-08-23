@@ -24,7 +24,7 @@ function listaUsuarios() {
     }
 }
 
-/*function iniciarSesion() {
+function iniciarSesion() {
     let usuario = prompt("Ingrese su correo")
     let contrasena = prompt("Ingrese su contraseña")
     //debugger
