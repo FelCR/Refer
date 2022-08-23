@@ -1,8 +1,7 @@
 class RegistroUsuario {
-    constructor (nombre, edad, sexo, telefono, correo, pass) {
+    constructor (nombre, edad, telefono, correo, pass) {
         this.nombre = nombre
         this.edad = edad
-        this.sexo = sexo
         this.telefono = telefono
         this.correo = correo
         this.pass = pass

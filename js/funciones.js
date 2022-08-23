@@ -1,8 +1,3 @@
-let productos = [] 
-let productosCarrito = []
-
-//let listado = document.getElementById("listaProductos");
-
 function registrarse() {
     //debugger
     const nombre = prompt("Ingrese su nombre:")
@@ -30,17 +25,15 @@ function listaUsuarios() {
 function iniciarSesion() {
     let usuario = prompt("Ingrese su correo")
     let contrasena = prompt("Ingrese su contraseña")
-    const pase1 = usuarios.find((RegistroUsuario) => RegistroUsuario.correo == usuario)
-    const pase2 = usuarios.find((RegistroUsuario) => RegistroUsuario.pass == contrasena)
+    //debugger
+    const pase1 = usuarios.filter((RegistroUsuario) => RegistroUsuario.correo == usuario)
+    const pase2 = pase1.some((pase1) => pase1.pass == contrasena)
 
-    if ((pase1)&&(pase2)) {
+    if (pase2) {
         alert("Bienvenido")
-        //console.log(pase1)
-        //console.log(pase2)
     } else {
         alert("No encontramos sus datos, lo invitamos a registrarse")
     }
-    
 }
 
 
@@ -74,7 +67,7 @@ function generadorAutomatico() {
     productos.push(new Producto(3456, "Lapiz rojo", 10))
 }
 
-generadorAutomatico()
+//generadorAutomatico()
 
 function buscarProductos() {
     let prod = prompt("¿Qué artículo esta buscando?")
@@ -104,13 +97,9 @@ function calcularCarrito() {
     console.log("Total a pagar: $", total)
 }
 
-/*function agregarProductos () {
-for (const producto of productos) {
-    let li = document.createElement("li");
-    li.innerHTML = producto
-    listado.appendChild(li);
-}
-}*/
+
+
+// --------------------DOM---------------------------
 
 function crearLista() {
     const listado = document.getElementById("listado")
@@ -120,7 +109,6 @@ function crearLista() {
                 listado.append(li)
 
     })
-
 }
 //crearLista()
 
