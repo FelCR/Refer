@@ -305,46 +305,6 @@ function eliminarProd(e) {
 })
 }
 
-const btnEliminarSa = () =>{
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-      })
-      
-      swalWithBootstrapButtons.fire({
-        title: '¿Estás seguro que deseas eliminar este producto?',
-        //text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Eliminar',
-        cancelButtonText: 'Cancelar',
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-
-            eliminarProd(e)
-
-          swalWithBootstrapButtons.fire(
-            '¡Eliminado!',
-            'Se removió el producto de tu lista',
-            'success'
-          )
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire(
-            'Cancelado',
-            'Tu producto sigue listado',
-            'error'
-          )
-        }
-      })
-}
-
 
 
 function agregarProducto() {
@@ -444,7 +404,7 @@ function agregarProducto() {
                             <td>${Producto.precio}</td>
                             <td>${Producto.categoria}</td>
                             <td>${Producto.stock}</td>
-                            <td><button type="button" onclick="btnEliminarSa()" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
+                            <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
                                 </tr><br>`
 }) 
 const btnEliminar = document.querySelectorAll(".btnEliminar")
