@@ -161,20 +161,54 @@ function cargadeProductos() {
     })
 }
 
-function cargadeProductosTienda() {
-    const cuerpo = document.getElementById("cuerpo")
-    productos.forEach(producto => {
-        cuerpo.innerHTML += `<tr>
-                                <td>${producto.id}</td>
-                                <td>${producto.nombre}</td>
-                                <td>${producto.precio}</td>
+function cargadeProductosTiendaTech() {
+    const listadoProductos = document.getElementById("listadoProductos")
+    tech.forEach(Producto => {
+        listadoProductos.innerHTML += `<tr>
+                                <td>${Producto.id}</td>
+                                <td>${Producto.nombre}</td>
+                                <td>${Producto.descripcion}</td>
+                                <td>${Producto.precio}</td>
+                                <td>${Producto.categoria}</td>
+                                <td>${Producto.stock}</td>
                             </tr>`
     })
 }
 
+function cargadeProductosTiendaModa() {
+    const listadoProductos = document.getElementById("listadoProductos")
+    moda.forEach(Producto => {
+        listadoProductos.innerHTML += `<tr>
+                                <td>${Producto.id}</td>
+                                <td>${Producto.nombre}</td>
+                                <td>${Producto.descripcion}</td>
+                                <td>${Producto.precio}</td>
+                                <td>${Producto.categoria}</td>
+                                <td>${Producto.stock}</td>
+                            </tr>`
+    })
+}
+
+
+
+function addProductosTienda() {
+    for (const producto of tech) {
+        const listadoProductos = document.getElementById("listadoProductos")
+        listadoProductos.innerHTML = `<tr>
+                                        <td>${Producto.id}</td>
+                                        <td>${Producto.nombre}</td>
+                                        <td>${Producto.descripcion}</td>
+                                        <td>${Producto.categoria}</td>
+                                        <td>${Producto.precio}</td>
+                                        <td>${Producto.stock}</td>
+                                    </tr>`
+
+    }
+}
+
 // CARGA DE PRODUCTOS SEGUN CATEGORÍA
 
-function agregarProductos() {
+/*function agregarProductos() {
     let id = creoID()
     let prodName = prompt("Ingresa el nombre del Producto:")
     let prodDesc = prompt("Describa el producto")
@@ -185,8 +219,6 @@ function agregarProductos() {
         switch(prodCat) {
             case "Tecnologia":
             tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            //console.table(productos)
-            //tech.push(Producto)
             console.table(tech)
             break
             case "Moda":
@@ -226,4 +258,207 @@ function agregarProductos() {
             console.table(libros)
             break
         }
+}*/
+
+//btnprodAdd.addEventListener("click", agregarProductos)
+
+function addDesdeCampos () {
+        console.log(camposAddProducto.value)
+
+        console.log(camposAddProducto1.value)
+
+        console.log(camposAddProducto2.value)
+
+        console.log(camposAddProducto3.value)
+
+        console.log(camposAddProducto4.value)
+
 }
+btnprodAdd.addEventListener(("click"), agregarProducto)
+
+
+
+function eliminarProd(e) {
+    const idProducto =  e.target.getAttribute("data-id")
+    console.log(idProducto)
+    const indexProducto= listaTienda.findIndex(indexArray => indexArray.id == idProducto)
+    console.log(indexProducto)
+    listaTienda.splice(indexProducto,1)
+    const listadoProductos = document.getElementById("listadoProductos")
+    listadoProductos.innerHTML=""
+    listaTienda.forEach(Producto => {
+        listadoProductos.innerHTML += 
+                            `<tr>
+                        <td>${Producto.id}</td>
+                        <td>${Producto.nombre}</td>
+                        <td>${Producto.descripcion}</td>
+                        <td>${Producto.precio}</td>
+                        <td>${Producto.categoria}</td>
+                        <td>${Producto.stock}</td>
+                        <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
+                            </tr><br>`
+}) 
+    const btnEliminar = document.querySelectorAll(".btnEliminar")
+    btnEliminar.forEach(boton=>{
+
+    boton.addEventListener("click",eliminarProd)
+})
+}
+
+const btnEliminarSa = () =>{
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: '¿Estás seguro que deseas eliminar este producto?',
+        //text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+            eliminarProd(e)
+
+          swalWithBootstrapButtons.fire(
+            '¡Eliminado!',
+            'Se removió el producto de tu lista',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'Tu producto sigue listado',
+            'error'
+          )
+        }
+      })
+}
+
+
+
+function agregarProducto() {
+    let id = creoID()
+    let prodName = document.querySelector("input.form-control.nombreProd").value
+    let prodDesc = document.querySelector("input.form-control.descProd").value
+    let precio = document.querySelector("input.form-control.precioProd").value
+    let prodCat = document.querySelector("select.form-select.form-select-sm.selectCat").value
+    let prodStock = document.querySelector("input.form-control.stockProd").value
+    const listadoProductos = document.getElementById("listadoProductos")
+    listadoProductos.innerHTML=""
+    //debugger
+
+    
+        switch(prodCat) {
+            case "Tecnologia":
+            tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(tech)
+            //cargadeProductosTiendaTech()
+            
+            //eliminarProd()
+            
+            break
+            case "Moda":
+            moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(moda)
+            //cargadeProductosTiendaModa()
+           
+            //eliminarProd()
+            
+            break
+            case "Belleza":
+            belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(belleza)
+            
+            
+            break
+            case "Servicios":
+            servicios.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(servicios)
+            
+            
+            break
+            case "Alimentos":
+            alimentos.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(alimentos)
+            
+            
+            break
+            case "Deportes":
+            deportes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(deportes)
+
+            
+            break
+            case "Herramientas":
+            herramientas.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(herramientas)
+            
+            
+            break
+            case "Muebles":
+            muebles.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(muebles)
+           
+            
+            break
+            case "Juguetes":
+            juguetes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(juguetes)
+            
+           
+            break
+            case "Libros":
+            libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(libros)
+            
+            
+            break
+        }
+        listaTienda.forEach(Producto => {
+            listadoProductos.innerHTML += 
+                                `<tr>
+                            <td>${Producto.id}</td>
+                            <td>${Producto.nombre}</td>
+                            <td>${Producto.descripcion}</td>
+                            <td>${Producto.precio}</td>
+                            <td>${Producto.categoria}</td>
+                            <td>${Producto.stock}</td>
+                            <td><button type="button" onclick="btnEliminarSa()" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
+                                </tr><br>`
+}) 
+const btnEliminar = document.querySelectorAll(".btnEliminar")
+btnEliminar.forEach(boton=>{
+    boton.addEventListener("click",eliminarProd)
+})
+const renglonProducto = document.querySelector("tr#rengProd")
+//renglonProducto.className = "pruebaclass"
+
+    document.querySelector("input.form-control.nombreProd").value=""
+    document.querySelector("input.form-control.descProd").value=""
+    document.querySelector("input.form-control.precioProd").value=""
+    document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
+    document.querySelector("input.form-control.stockProd").value=""
+    }
+
+

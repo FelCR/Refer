@@ -1,5 +1,6 @@
 const usuarios = []
 const categorias = []
+const listaTienda = []
 const tech = []
 const moda = []
 const belleza = []
@@ -17,3 +18,17 @@ const socios = []
 const carrito = []
 let productos = [] 
 let productosCarrito = []
+
+function addCat(){
+    categorias.push(tech)
+    categorias.push(moda)
+    categorias.push(belleza)
+    categorias.push(servicios)
+    categorias.push(alimentos)
+    categorias.push(deportes)
+    categorias.push(herramientas)
+    categorias.push(muebles)
+    categorias.push(juguetes)
+    categorias.push(libros)
+}
+addCat()

@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
     <link rel="stylesheet" href="style.css">
-    <script src="js/objetos.js"></script>
-    <script src="js/arreglos.js"></script>
-    <script src="js/variables.js"></script>
-    <script src="js/funciones.js"></script>
+    <script defer src="js/objetos.js"></script>
+    <script defer src="js/arreglos.js"></script>
+    <script defer src="js/variables.js"></script>
+    <script defer src="js/funciones.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +99,51 @@
                 </button>
               </div>
         </div>
-        <div class="recomendacionesIndex"><h2>Productos disponibles</h2></div><br>
+        <div id="descripcionTienda"></div>
+        <div class="tituloTienda"><h2>Productos disponibles</h2>
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Nuevo producto
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalLabel">Ingresa los datos del producto/servicio</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form name="form" action="Index.html"></form>
+                  <div class="modal-body">
+                    <input class="form-control nombreProd" type="text" placeholder="Nombre del producto/servicio" aria-label="default input example"><br>
+                    <input class="form-control descProd" type="text" placeholder="Descripción" aria-label="default input example"><br>
+                    <input class="form-control precioProd" type="number" placeholder="Precio" aria-label="default input example"><br>
+                    <select class="form-select form-select-sm selectCat" aria-label=".form-select-sm example">
+                      <option value="">Categoría</option>
+                      <option value="Tecnologia">Tecnologia</option>
+                      <option value="Moda">Moda</option>
+                      <option value="Belleza">Belleza</option>
+                      <option value="Servicios">Servicios</option>
+                      <option value="Alimentos">Alimentos</option>
+                      <option value="Deportes">Deportes</option>
+                      <option value="Herramientas">Herramientas</option>
+                      <option value="Muebles">Muebles</option>
+                      <option value="Juguetes">Juguetes</option>
+                      <option value="Libros">Libros</option>
+                    </select><br>
+                    <input class="form-control stockProd" type="number" placeholder="Stock disponible" aria-label="default input example"><br>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="botonAgregarProducto">Agregar</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div><br>
         <!--<ul id="listado">
 
         </ul>-->
@@ -107,10 +152,13 @@
               <tr>
                   <th>ID</th>
                   <th>NOMBRE</th>
-                  <th>IMPORTE</th>
+                  <th>DESCRIPCIÓN</th>
+                  <th>PRECIO</th>
+                  <th>CATEGORÍA</th>
+                  <th>STOCK</th>
               </tr>
           </thead>
-          <tbody id="cuerpo">
+          <tbody id="listadoProductos">
 
           </tbody>
       </table>
