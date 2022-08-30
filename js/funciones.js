@@ -234,15 +234,18 @@ function eliminarProd(e) {
     listadoProductos.innerHTML=""
     listaTienda.forEach(Producto => {
         listadoProductos.innerHTML += 
-                            `<tr>
-                        <td>${Producto.id}</td>
-                        <td>${Producto.nombre}</td>
-                        <td>${Producto.descripcion}</td>
-                        <td>${Producto.precio}</td>
-                        <td>${Producto.categoria}</td>
-                        <td>${Producto.stock}</td>
-                        <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
-                            </tr><br>`
+                                `<div class=tarjetasTienda>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${Producto.nombre}</h5>
+                                        <p class="card-text">${Producto.descripcion}</p>
+                                        <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
+                                        <a href="#" class="btn btn-primary" >Comprar</a>
+                                        <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                    </div>
+                                    </div>
+                                </div>`
 }) 
     const btnEliminar = document.querySelectorAll(".btnEliminar")
     btnEliminar.forEach(boton=>{
@@ -343,15 +346,18 @@ function agregarProducto() {
         }
         listaTienda.forEach(Producto => {
             listadoProductos.innerHTML += 
-                                `<tr>
-                            <td>${Producto.id}</td>
-                            <td>${Producto.nombre}</td>
-                            <td>${Producto.descripcion}</td>
-                            <td>${Producto.precio}</td>
-                            <td>${Producto.categoria}</td>
-                            <td>${Producto.stock}</td>
-                            <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
-                                </tr><br>`
+                                 `<div class=tarjetasTienda>
+                                 <div class="card" style="width: 18rem;">
+                                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${Producto.nombre}</h5>
+                                            <p class="card-text">${Producto.descripcion}</p>
+                                            <p><h7 class="precioTarjeta ">$ ${Producto.precio}</h7></p>
+                                            <a href="#" class="btn btn-primary" >Comprar</a>
+                                            <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                        </div>
+                                        </div>
+                                    </div>`
 }) 
 const btnEliminar = document.querySelectorAll(".btnEliminar")
 btnEliminar.forEach(boton=>{
