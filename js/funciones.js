@@ -206,61 +206,7 @@ function addProductosTienda() {
     }
 }
 
-// CARGA DE PRODUCTOS SEGUN CATEGORÍA
 
-/*function agregarProductos() {
-    let id = creoID()
-    let prodName = prompt("Ingresa el nombre del Producto:")
-    let prodDesc = prompt("Describa el producto")
-    let precio = parseInt(prompt("Ingresa el importe:"))
-    let prodCat = prompt("Ingrese categoria")
-    let prodStock = parseInt(prompt("¿Cual es el Stock del producto?"))
-    //debugger
-        switch(prodCat) {
-            case "Tecnologia":
-            tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(tech)
-            break
-            case "Moda":
-            moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(moda)
-            break
-            case "Belleza":
-            belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(belleza)
-            break
-            case "Servicios":
-            servicios.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(servicios)
-            break
-            case "Alimentos":
-            alimentos.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(alimentos)
-            break
-            case "Deportes":
-            deportes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(deportes)
-            break
-            case "Herramientas":
-            herramientas.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(herramientas)
-            break
-            case "Muebles":
-            muebles.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(muebles)
-            break
-            case "Juguetes":
-            juguetes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(juguetes)
-            break
-            case "Libros":
-            libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(libros)
-            break
-        }
-}*/
-
-//btnprodAdd.addEventListener("click", agregarProductos)
 
 function addDesdeCampos () {
         console.log(camposAddProducto.value)
