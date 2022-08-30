@@ -324,20 +324,14 @@ function agregarProducto() {
             tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             console.table(tech)
-            //cargadeProductosTiendaTech()
-            
-            //eliminarProd()
             
             break
             case "Moda":
             moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             console.table(moda)
-            //cargadeProductosTiendaModa()
-           
-            //eliminarProd()
-            
             break
+
             case "Belleza":
             belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
@@ -390,9 +384,7 @@ function agregarProducto() {
             case "Libros":
             libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(libros)
-            
-            
+            console.table(libros) 
             break
         }
         listaTienda.forEach(Producto => {
@@ -420,5 +412,4 @@ const renglonProducto = document.querySelector("tr#rengProd")
     document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
     document.querySelector("input.form-control.stockProd").value=""
     }
-
 
