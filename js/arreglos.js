@@ -1,6 +1,7 @@
 const usuarios = []
 const categorias = []
 const listaTienda = []
+const publicaciones = []
 const tech = []
 const moda = []
 const belleza = []

@@ -38,3 +38,11 @@ class RegistroTienda {
             console.table (constructor)
         }
 }
+
+class Publicacion {
+    constructor(id, imagen, descripcion) {
+        this.id = id
+        this.imagen = imagen
+        this.descripcion = descripcion
+}
+}

@@ -81,21 +81,42 @@
 
     <section id="seccionIndex">
         <div class="portadaTienda">
-         <div class="logoTienda">LOGO</div>
-          
-        </div>
-        <div class="descripcionTienda">DESCRIPCIÓN</div>
-
-          </div>
-        
-        <div class="publicacionesTienda">PUBLICACIONES</div>
-
-        <div class="tituloTienda"><h2>Productos disponibles</h2>
-        <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Nuevo producto
+         <div><img src="Pictures/Perfil2.png" class="logoTienda" alt="..."></div>
+         </div>
+        <div class="tituloTienda"><h2>Descripción</h2>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#descripModal">
+              Editar
             </button>
 
+            <!-- Modal -->
+            <div class="modal fade" id="descripModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Descripción</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="exampleFormControlTextarea1" class="form-label">Agrega una descripción de tu tienda</label>
+                      <textarea class="form-control descContentTienda" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary btndescTienda">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="descTienda"></div>
+        <div class="tituloTienda"><h2>Catálogo</h2>
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Agregar
+            </button>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -134,26 +155,41 @@
               </div>
             </div>
         </div><br>
-        <!--<ul id="listado">
+        <div id="listadoProductos"></div>
+        <div class="tituloTienda"><h2>Publicaciones</h2>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#publiModal">
+            Publicar
+          </button>
 
-        </ul>-->
-        <table class="listaProductos">
-          <thead>
-              <tr>
-                  <th>ID</th>
-                  <th>NOMBRE</th>
-                  <th>DESCRIPCIÓN</th>
-                  <th>PRECIO</th>
-                  <th>CATEGORÍA</th>
-                  <th>STOCK</th>
-              </tr>
-          </thead>
-          <tbody id="listadoProductos">
-
-          </tbody>
-      </table>
+          <!-- Modal -->
+          <div class="modal fade" id="publiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Publicación</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="formFileSm" class="form-label">Subir foto/video</label>
+                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                    <textarea class="form-control contPublicacion" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary btnPublicar">Publicar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="publiTienda"></div>
         
-          
     </section>
 
     <footer>

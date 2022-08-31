@@ -235,15 +235,18 @@ function eliminarProd(e) {
     listadoProductos.innerHTML=""
     listaTienda.forEach(Producto => {
         listadoProductos.innerHTML += 
-                            `<tr>
-                        <td>${Producto.id}</td>
-                        <td>${Producto.nombre}</td>
-                        <td>${Producto.descripcion}</td>
-                        <td>${Producto.precio}</td>
-                        <td>${Producto.categoria}</td>
-                        <td>${Producto.stock}</td>
-                        <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
-                            </tr><br>`
+                                `<div class=tarjetasTienda>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${Producto.nombre}</h5>
+                                        <p class="card-text">${Producto.descripcion}</p>
+                                        <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
+                                        <a href="#" class="btn btn-primary" >Comprar</a>
+                                        <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                    </div>
+                                    </div>
+                                </div>`
 }) 
     const btnEliminar = document.querySelectorAll(".btnEliminar")
     btnEliminar.forEach(boton=>{
@@ -271,14 +274,20 @@ function agregarProducto() {
             tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             console.table(tech)
+            //cargadeProductosTiendaTech()
+            
+            //eliminarProd()
             
             break
             case "Moda":
             moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             console.table(moda)
+            //cargadeProductosTiendaModa()
+           
+            //eliminarProd()
+            
             break
-
             case "Belleza":
             belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
@@ -331,20 +340,25 @@ function agregarProducto() {
             case "Libros":
             libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
             listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(libros) 
+            console.table(libros)
+            
+            
             break
         }
         listaTienda.forEach(Producto => {
             listadoProductos.innerHTML += 
-                                `<tr>
-                            <td>${Producto.id}</td>
-                            <td>${Producto.nombre}</td>
-                            <td>${Producto.descripcion}</td>
-                            <td>${Producto.precio}</td>
-                            <td>${Producto.categoria}</td>
-                            <td>${Producto.stock}</td>
-                            <td><button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button></td>
-                                </tr><br>`
+                                 `<div class=tarjetasTienda>
+                                 <div class="card" style="width: 18rem;">
+                                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${Producto.nombre}</h5>
+                                            <p class="card-text">${Producto.descripcion}</p>
+                                            <p><h7 class="precioTarjeta ">$ ${Producto.precio}</h7></p>
+                                            <a href="#" class="btn btn-primary" >Comprar</a>
+                                            <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                        </div>
+                                        </div>
+                                    </div>`
 }) 
 const btnEliminar = document.querySelectorAll(".btnEliminar")
 btnEliminar.forEach(boton=>{
@@ -352,11 +366,41 @@ btnEliminar.forEach(boton=>{
 })
 const renglonProducto = document.querySelector("tr#rengProd")
 //renglonProducto.className = "pruebaclass"
-
+/*
     document.querySelector("input.form-control.nombreProd").value=""
     document.querySelector("input.form-control.descProd").value=""
     document.querySelector("input.form-control.precioProd").value=""
     document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
-    document.querySelector("input.form-control.stockProd").value=""
-    }
+    document.querySelector("input.form-control.stockProd").value=""*/
+}
 
+function descTienda() {
+    let descpripcion = document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value
+    const descripTienda = document.getElementById("descTienda")
+    descripTienda.innerHTML =
+                    `<p class=descripcion>${descpripcion}</p>`
+}
+
+btndescTienda.addEventListener(("click"), descTienda)
+
+
+function publicar() {
+    let id = creoID()
+    let pubImg = document.querySelector("input#formFileSm.form-control.form-control-sm").value
+    let pubText = document.querySelector("textarea#exampleFormControlTextarea1.form-control.contPublicacion").value
+    const publiTienda = document.getElementById("publiTienda")
+    publicaciones.push(new Publicacion(id, pubImg, pubText))
+    publiTienda.innerHTML=""
+    publicaciones.forEach(Publicacion => {
+        publiTienda.innerHTML += 
+                             `<div class="card cardPublicacion">
+                             <div class="card-body">
+                             <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
+                               <p class="card-text">${Publicacion.descripcion}</p>
+                             </div>
+                             <img src="Pictures/tienda.jpg  " class="card-img-bottom" alt="...">
+                           </div>`
+}) 
+}
+
+btnPublicar.addEventListener(("click"), publicar)
