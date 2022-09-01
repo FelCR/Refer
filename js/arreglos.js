@@ -20,6 +20,7 @@ const carrito = []
 let productos = [] 
 let productosCarrito = []
 
+
 function addCat(){
     categorias.push(tech)
     categorias.push(moda)

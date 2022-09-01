@@ -233,6 +233,7 @@ function eliminarProd(e) {
     listaTienda.splice(indexProducto,1)
     const listadoProductos = document.getElementById("listadoProductos")
     listadoProductos.innerHTML=""
+
     listaTienda.forEach(Producto => {
         listadoProductos.innerHTML += 
                                 `<div class=tarjetasTienda>
@@ -253,6 +254,7 @@ function eliminarProd(e) {
 
     boton.addEventListener("click",eliminarProd)
 })
+Swal.fire('Producto eliminado')
 }
 
 
@@ -345,7 +347,17 @@ function agregarProducto() {
             
             break
         }
-        listaTienda.forEach(Producto => {
+        
+        localStorage.setItem("listaTienda", JSON.stringify(listaTienda))
+        let iniLista = listaTienda.length-4
+        let finLista = listaTienda.length+1
+        const listaEnTienda = listaTienda.slice(iniLista, finLista)
+        listaEnTienda.reverse()
+        console.table(listaEnTienda)
+
+        //let displayProductos = listaTienda.length-8 
+
+        listaEnTienda.forEach(Producto => {
             listadoProductos.innerHTML += 
                                  `<div class=tarjetasTienda>
                                  <div class="card" style="width: 18rem;">
@@ -372,7 +384,10 @@ const renglonProducto = document.querySelector("tr#rengProd")
     document.querySelector("input.form-control.precioProd").value=""
     document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
     document.querySelector("input.form-control.stockProd").value=""*/
+    Swal.fire('Producto agregado con éxito')
+    
 }
+
 
 function descTienda() {
     let descpripcion = document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value
