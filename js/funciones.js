@@ -204,8 +204,7 @@ function eliminarProd(e) {
 }) 
     const btnEliminar = document.querySelectorAll(".btnEliminar")
     btnEliminar.forEach(boton=>{
-
-    boton.addEventListener("click",eliminarProd)
+        boton.addEventListener("click",eliminarProd)
     funcionalidad()
     
 })
@@ -327,21 +326,12 @@ function agregarProducto() {
                                         </div>
                                     </div>`
 }) 
-const btnEliminar = document.querySelectorAll(".btnEliminar")
-btnEliminar.forEach(boton=>{
-    boton.addEventListener("click",eliminarProd)
+    const btnEliminar = document.querySelectorAll(".btnEliminar")
+    btnEliminar.forEach(boton=>{
+        boton.addEventListener("click",eliminarProd)
 })
-const renglonProducto = document.querySelector("tr#rengProd")
-//renglonProducto.className = "pruebaclass"
-/*
-    document.querySelector("input.form-control.nombreProd").value=""
-    document.querySelector("input.form-control.descProd").value=""
-    document.querySelector("input.form-control.precioProd").value=""
-    document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
-    document.querySelector("input.form-control.stockProd").value=""*/
     Swal.fire('Producto agregado con éxito')
-    funcionalidad();
-    
+    funcionalidad();  
 }
 
 
@@ -399,7 +389,11 @@ function agregarCarrito(Producto){
     }
     console.log(carrito);
     renderizarCarrito();
-    borrarProducto();
+    //borrarProducto();
+    const btnBorrar = document.querySelectorAll(".btnBorrar")
+    btnBorrar.forEach(boton=>{
+        boton.addEventListener("click",borrarProd)
+    })
 }
 
 function renderizarCarrito(){
@@ -412,19 +406,22 @@ function renderizarCarrito(){
                     <td>${Producto.descripcion}</td>
                     <td>${Producto.cantidad}</td>     
                     <td>${Producto.precio}</td>
-                    <td><button type="button" class="btn btn-danger" id="btn-borrar${Producto.id}">Eliminar</button></td>
+                    <td><button type="button" class="btn btn-danger btnBorrar" id="btn-borrar${Producto.id}" data-id="${Producto.id}">Eliminar</button></td>
                 </tr>`
     });
 }
 
-function borrarProducto(){
-    carrito.forEach((Producto) => {
-        document.querySelector(`#btn-borrar${Producto.id}`).addEventListener("click", () => {
-            console.log("click");
-            carrito = carrito.filter(
-                (productoFilter) => productoFilter.id !==Producto.id
-            );
-            renderizarCarrito();
-        });
-    });
+function borrarProd(e) {
+    const idProd =  e.target.getAttribute("data-id")
+    console.log(idProd)
+    const indexProd= carrito.findIndex(indexCarrito => indexCarrito.id == idProd)
+    console.log(indexProd)
+    carrito.splice(indexProd,1)
+    //const carritoCompra = document.getElementById("carritoCompra")
+    renderizarCarrito();
+
+    const btnBorrar = document.querySelectorAll(".btnBorrar")
+    btnBorrar.forEach(boton=>{
+        boton.addEventListener("click",borrarProd)
+    })
 }
