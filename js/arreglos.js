@@ -1,6 +1,41 @@
 const usuarios = []
 const categorias = []
-const listaTienda = []
+let listaTienda = [
+    
+    {
+        id:1234,
+        nombre:"Producto1",
+        descripcion:"Descripcion1",
+        precio:500,
+        categoria:"tech",
+        stock:1,
+    },
+    {
+        id:2345,
+        nombre:"Producto2",
+        descripcion:"Descripcion2",
+        precio:500,
+        categoria:"tech",
+        stock:1,
+    },
+    {
+        id:3456,
+        nombre:"Producto3",
+        descripcion:"Descripcion3",
+        precio:500,
+        categoria:"tech",
+        stock:1,
+    },
+    {
+        id:4567,
+        nombre:"Producto4",
+        descripcion:"Descripcion4",
+        precio:500,
+        categoria:"tech",
+        stock:1,
+    },
+
+]
 const publicaciones = []
 const tech = []
 const moda = []
@@ -16,7 +51,7 @@ const tiendas = []
 const favoritos = []
 const contactos = []
 const socios = []
-const carrito = []
+let carrito = []
 let productos = [] 
 let productosCarrito = []
 

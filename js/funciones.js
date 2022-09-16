@@ -80,13 +80,6 @@ function abrirTienda() {
 
 function creoID() { return parseInt(Math.random() * 100000) }
 
-/*function agregarProductos() {
-    let id = creoID()
-    let descripcion = prompt("Ingresa el nombre del Producto:")
-    let precio = parseInt(prompt("Ingresa el importe:"))
-        productos.push(new Producto(id, descripcion, precio))
-        console.table(productos)
-} */
 
 function agregarAlCarrito() {
     let productoCarrito = prompt("¿Que producto le interesa?")
@@ -139,74 +132,34 @@ function calcularCarrito() {
 
 // --------------------DOM---------------------------
 
-function crearLista() {
-    const listado = document.getElementById("listado")
-    productos.forEach(producto => {
-        const li = document.createElement("li")
-                li.innerText = producto
-                listado.append(li)
-
-    })
-}
-//crearLista()
-
-function cargadeProductos() {
-    const cuerpo = document.getElementById("cuerpoCarrito")
-    productos.forEach(producto => {
-        cuerpo.innerHTML += `<tr>
-                                <td>${producto.id}</td>
-                                <td>${producto.nombre}</td>
-                                <td>${producto.precio}</td>
-                            </tr>`
-    })
-}
-
-function cargadeProductosTiendaTech() {
-    const listadoProductos = document.getElementById("listadoProductos")
-    tech.forEach(Producto => {
-        listadoProductos.innerHTML += `<tr>
-                                <td>${Producto.id}</td>
-                                <td>${Producto.nombre}</td>
-                                <td>${Producto.descripcion}</td>
-                                <td>${Producto.precio}</td>
-                                <td>${Producto.categoria}</td>
-                                <td>${Producto.stock}</td>
-                            </tr>`
-    })
-}
-
-function cargadeProductosTiendaModa() {
-    const listadoProductos = document.getElementById("listadoProductos")
-    moda.forEach(Producto => {
-        listadoProductos.innerHTML += `<tr>
-                                <td>${Producto.id}</td>
-                                <td>${Producto.nombre}</td>
-                                <td>${Producto.descripcion}</td>
-                                <td>${Producto.precio}</td>
-                                <td>${Producto.categoria}</td>
-                                <td>${Producto.stock}</td>
-                            </tr>`
-    })
-}
-
-
-
-function addProductosTienda() {
-    for (const producto of tech) {
-        const listadoProductos = document.getElementById("listadoProductos")
-        listadoProductos.innerHTML = `<tr>
-                                        <td>${Producto.id}</td>
-                                        <td>${Producto.nombre}</td>
-                                        <td>${Producto.descripcion}</td>
-                                        <td>${Producto.categoria}</td>
-                                        <td>${Producto.precio}</td>
-                                        <td>${Producto.stock}</td>
-                                    </tr>`
-
-    }
-}
 
 // CARGA DE PRODUCTOS SEGUN CATEGORÍA
+
+function crearCards() {
+    listaTienda.forEach(Producto => {
+        listadoProductos.innerHTML += 
+                                `<div class=tarjetasTienda>
+                                <div class="card" style="width: 18rem;">
+                                    <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${Producto.nombre}</h5>
+                                        <p class="card-text">${Producto.descripcion}</p>
+                                        <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
+                                        <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
+                                        <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                    </div>
+                                    </div>
+                                </div>`
+    });
+    funcionalidad();
+    const btnEliminar = document.querySelectorAll(".btnEliminar")
+    btnEliminar.forEach(boton=>{
+    boton.addEventListener("click",eliminarProd)
+})
+
+}
+
+crearCards()
 
 
 function addDesdeCampos () {
@@ -243,7 +196,7 @@ function eliminarProd(e) {
                                         <h5 class="card-title">${Producto.nombre}</h5>
                                         <p class="card-text">${Producto.descripcion}</p>
                                         <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
-                                        <a href="#" class="btn btn-primary" >Comprar</a>
+                                        <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
                                         <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
                                     </div>
                                     </div>
@@ -253,6 +206,8 @@ function eliminarProd(e) {
     btnEliminar.forEach(boton=>{
 
     boton.addEventListener("click",eliminarProd)
+    funcionalidad()
+    
 })
 Swal.fire('Producto eliminado')
 }
@@ -348,16 +303,16 @@ function agregarProducto() {
             break
         }
         
-        localStorage.setItem("listaTienda", JSON.stringify(listaTienda))
+        /*localStorage.setItem("listaTienda", JSON.stringify(listaTienda))
         let iniLista = listaTienda.length-4
         let finLista = listaTienda.length+1
         const listaEnTienda = listaTienda.slice(iniLista, finLista)
         listaEnTienda.reverse()
-        console.table(listaEnTienda)
+        console.table(listaEnTienda)*/
 
         //let displayProductos = listaTienda.length-8 
 
-        listaEnTienda.forEach(Producto => {
+        listaTienda.forEach(Producto => {
             listadoProductos.innerHTML += 
                                  `<div class=tarjetasTienda>
                                  <div class="card" style="width: 18rem;">
@@ -366,7 +321,7 @@ function agregarProducto() {
                                             <h5 class="card-title">${Producto.nombre}</h5>
                                             <p class="card-text">${Producto.descripcion}</p>
                                             <p><h7 class="precioTarjeta ">$ ${Producto.precio}</h7></p>
-                                            <a href="#" class="btn btn-primary" >Comprar</a>
+                                            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
                                             <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
                                         </div>
                                         </div>
@@ -385,6 +340,7 @@ const renglonProducto = document.querySelector("tr#rengProd")
     document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
     document.querySelector("input.form-control.stockProd").value=""*/
     Swal.fire('Producto agregado con éxito')
+    funcionalidad();
     
 }
 
@@ -413,9 +369,62 @@ function publicar() {
                              <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
                                <p class="card-text">${Publicacion.descripcion}</p>
                              </div>
-                             <img src="Pictures/tienda.jpg  " class="card-img-bottom" alt="...">
+                             <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
                            </div>`
 }) 
 }
 
 btnPublicar.addEventListener(("click"), publicar)
+
+
+//-------------------------------Carrito------------------------------------//
+
+function funcionalidad() {
+    listaTienda.forEach((Producto)=>{
+        document.querySelector(`#btn-agregar${Producto.id}`).addEventListener("click", () =>{
+            console.log(Producto)
+            agregarCarrito(Producto)
+        })
+    })
+}
+
+function agregarCarrito(Producto){
+    let existe = carrito.some((productoSome) => productoSome.id === Producto.id);
+    if (existe === false) {
+        Producto.cantidad = 1;
+        carrito.push(Producto)
+    } else {
+        let prodFind = carrito.find((productoFind) => productoFind.id === Producto.id);
+        prodFind.cantidad++;
+    }
+    console.log(carrito);
+    renderizarCarrito();
+    borrarProducto();
+}
+
+function renderizarCarrito(){
+    carritoCompra.innerHTML=""
+    carrito.forEach((Producto) =>{
+        carritoCompra.innerHTML +=
+                `<tr>
+                    <td><img src="Pictures/producto.webp" height="100px" width="0px" class="card-img-top" alt="..."></td>
+                    <td>${Producto.nombre}</td>
+                    <td>${Producto.descripcion}</td>
+                    <td>${Producto.cantidad}</td>     
+                    <td>${Producto.precio}</td>
+                    <td><button type="button" class="btn btn-danger" id="btn-borrar${Producto.id}">Eliminar</button></td>
+                </tr>`
+    });
+}
+
+function borrarProducto(){
+    carrito.forEach((Producto) => {
+        document.querySelector(`#btn-borrar${Producto.id}`).addEventListener("click", () => {
+            console.log("click");
+            carrito = carrito.filter(
+                (productoFilter) => productoFilter.id !==Producto.id
+            );
+            renderizarCarrito();
+        });
+    });
+}
