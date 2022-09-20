@@ -36,6 +36,7 @@ let listaTienda = [
     },
 
 ]
+let listaEnTienda = []
 const publicaciones = []
 const tech = []
 const moda = []

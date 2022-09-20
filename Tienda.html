@@ -37,7 +37,7 @@
             <nav class="navPerfil">
                 <div class="menuPerfil" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><div>Foto Perfil</div><!--<img src="Pictures/perfil.png" height="45px" width="45px">--></div>
 
-                <div class="offcanvas offcanvas-end data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <!--<div class="offcanvas offcanvas-end data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                   <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Nombre de Usuario</h5> <img src="Pictures/perfil.png" height="45px" width="45px">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -52,9 +52,11 @@
                     <div class="botonMenuPerfil">Ajustes</div>
                     <div class="botonMenuPerfil">Cerrar sesión</div>
                   </div>
-                </div></nav>
+                </div>--></nav>
         </div>
-        <div class="botonCarrito"><a href="#"><img src="Pictures/carrito.png" height="35px" width="35px"></a></div>
+        <div class="botonCarrito"><a href="#"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="Pictures/carrito.png" height="35px" width="35px"></a>
+              
+        </div>
         <nav class="navIndex">
             <!--<div class="botonMenu">Categorias</div>-->
             <a class="botonMenu" href="#">Inicio</div>
@@ -80,133 +82,185 @@
     </header>
 
     <section id="seccionIndex">
-        <div class="portadaTienda">
+        
+      <div class="portadaTienda">
          <div><img src="Pictures/Perfil2.png" class="logoTienda" alt="..."></div>
          </div>
-        <div class="tituloTienda"><h2>Descripción</h2>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#descripModal">
-              Editar
-            </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="descripModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Descripción</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlTextarea1" class="form-label">Agrega una descripción de tu tienda</label>
-                      <textarea class="form-control descContentTienda" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary btndescTienda">Guardar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div id="descTienda"></div>
-        <div class="tituloTienda"><h2>Catálogo</h2>
+         <div class="menu"><ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Inicio</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Catalogo</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#projects-tab-pane" type="button" role="tab" aria-controls="projects-tab-pane" aria-selected="false">Publicaciones</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Carrito</button>
+          </li>
+          <!--<li class="nav-item" role="presentation">
+            <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+          </li>-->
+          </ul></div>
+    </div>
+  
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <div class="tituloTienda"><h2>Descripción</h2>
         <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Agregar
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                   <h5 class="modal-title" id="exampleModalLabel">Ingresa los datos del producto/servicio</h5>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <form name="form" action="Index.html"></form>
-                  <div class="modal-body">
-                    <input class="form-control nombreProd" type="text" placeholder="Nombre del producto/servicio" aria-label="default input example"><br>
-                    <input class="form-control descProd" type="text" placeholder="Descripción" aria-label="default input example"><br>
-                    <input class="form-control precioProd" type="number" placeholder="Precio" aria-label="default input example"><br>
-                    <select class="form-select form-select-sm selectCat" aria-label=".form-select-sm example">
-                      <option value="">Categoría</option>
-                      <option value="Tecnologia">Tecnologia</option>
-                      <option value="Moda">Moda</option>
-                      <option value="Belleza">Belleza</option>
-                      <option value="Servicios">Servicios</option>
-                      <option value="Alimentos">Alimentos</option>
-                      <option value="Deportes">Deportes</option>
-                      <option value="Herramientas">Herramientas</option>
-                      <option value="Muebles">Muebles</option>
-                      <option value="Juguetes">Juguetes</option>
-                      <option value="Libros">Libros</option>
-                    </select><br>
-                    <input class="form-control stockProd" type="number" placeholder="Stock disponible" aria-label="default input example"><br>
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" id="botonAgregarProducto">Agregar</button>
-                  </form>
-                  </div>
+        <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#descripModal">
+          Editar
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="descripModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Descripción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Agrega una descripción de tu tienda</label>
+                  <textarea class="form-control descContentTienda" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
               </div>
-            </div>
-        </div><br>
-        <div id="listadoProductos"></div>
-        <div class="tituloTienda"><h2>Publicaciones</h2>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#publiModal">
-            Publicar
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="publiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Publicación</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div class="mb-3">
-                    <label for="formFileSm" class="form-label">Subir foto/video</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                    <textarea class="form-control contPublicacion" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary btnPublicar">Publicar</button>
-                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btndescTienda">Guardar</button>
               </div>
             </div>
           </div>
         </div>
-        <div id="publiTienda"></div>
+    </div>
+    <div id="descTienda"></div>
+    <div class="tituloTienda"><h2>Lo más nuevo</h2></div>
+    <div id="productoPortada"></div><br><br>
+    <div class="tituloTienda"><h2>Reciente</h2></div>
+      <div id="publicacionesPortada"></div>
+    </div>
 
-        <div class="tituloTienda"><h2>Carrito</h2></div>
+  <!--CATALOGO-->
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      
+    <div class="tituloTienda"><h2>Catálogo</h2>
+    <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Agregar
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Ingresa los datos del producto/servicio</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form name="form" action="Index.html"></form>
+              <div class="modal-body">
+                <input class="form-control nombreProd" type="text" placeholder="Nombre del producto/servicio" aria-label="default input example"><br>
+                <input class="form-control descProd" type="text" placeholder="Descripción" aria-label="default input example"><br>
+                <input class="form-control precioProd" type="number" placeholder="Precio" aria-label="default input example"><br>
+                <select class="form-select form-select-sm selectCat" aria-label=".form-select-sm example">
+                  <option value="">Categoría</option>
+                  <option value="Tecnologia">Tecnologia</option>
+                  <option value="Moda">Moda</option>
+                  <option value="Belleza">Belleza</option>
+                  <option value="Servicios">Servicios</option>
+                  <option value="Alimentos">Alimentos</option>
+                  <option value="Deportes">Deportes</option>
+                  <option value="Herramientas">Herramientas</option>
+                  <option value="Muebles">Muebles</option>
+                  <option value="Juguetes">Juguetes</option>
+                  <option value="Libros">Libros</option>
+                </select><br>
+                <input class="form-control stockProd" type="number" placeholder="Stock disponible" aria-label="default input example"><br>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="botonAgregarProducto">Agregar</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div><br>
+    <div id="listadoProductos"></div>
+  </div>
+     
+  <!--PUBLICACIONES-->
+    <div class="tab-pane fade" id="projects-tab-pane" role="tabpanel" aria-labelledby="projects-tab" tabindex="0">
+      <div class="tituloTienda"><h2>Publicaciones</h2>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-warning btnAgregar" data-bs-toggle="modal" data-bs-target="#publiModal">
+          Publicar
+        </button>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="publiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Publicación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="formFileSm" class="form-label">Subir foto/video</label>
+                  <input class="form-control form-control-sm" id="formFileSm" type="file">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                  <textarea class="form-control contPublicacion" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btnPublicar">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="publiTienda"></div>
+    </div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody  id="carritoCompra">
-            
-          </tbody>
-        </table>
+  <!--CARRITO-->
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+      <div class="tituloTienda"><h2>Carrito</h2></div>
+                  <div class="tablaCarrito">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody  id="carritoCompra">
+                      
+                    </tbody>
+                    
+                  </table>
+                  <div class="total"><h2>Total: $<span id="totalCarrito">0</span></h2>
+                  
+                    <div id="confirmarCompra">
+                     
+                  </div>
+                  <div><button type="button" class="btn btn-danger" id="vaciarCarrito">Vaciar</button></div>
+                  </div>
+                  </div>
+    </div>
+  </div>
+
+        
         
     </section>
 

@@ -293,6 +293,83 @@ footer {
   text-align: justify;
 }
 
+.tablaCarrito {
+  height: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#imgCarrito {
+  height: auto;
+  width: 140px;
+}
+
+.datoCarrito {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+}
+
+#productoPortada {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#publicacionesPortada {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse wrap;
+          flex-flow: row-reverse wrap;
+}
+
+.total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+#vaciarCarrito {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#comprarCarrito {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 /*------------------->> RESPONSIVIDAD <<--------------------*/
 @media (max-width: 360px) {
   #seccionIndexMq2 {
