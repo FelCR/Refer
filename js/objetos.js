@@ -1,7 +1,9 @@
 class RegistroUsuario {
-    constructor (nombre, edad, telefono, correo, pass) {
+    constructor (id, nombre, apellido, fechaNacimiento, telefono, correo, pass) {
+        this.usrid = id
         this.nombre = nombre
-        this.edad = edad
+        this.apellido = apellido
+        this.fechaNacimiento = fechaNacimiento
         this.telefono = telefono
         this.correo = correo
         this.pass = pass
@@ -20,27 +22,24 @@ class Producto {
         this.precio = precio
         this.categoria = categoria
         this.stock = stock
-    }precioFinal() {
-        return '$ ' + parseFloat((this.precio * 1.16).toFixed(2))
     }
 }
 
 class RegistroTienda {
-    constructor (nombre, giro, descripcion, telefono, correo) {
+    constructor (usrId, id, nombre, giro, descripcion, telefono, correo) {
+        this.usrid = usrId
+        this.id = id
         this.nombre = nombre
         this.giro = giro
         this.descripcion = descripcion
         this.telefono = telefono
         this.correo = correo
     }
-        displayDatos() {
-            console.log("Los datos de su tienda son:")
-            console.table (constructor)
-        }
 }
 
 class Publicacion {
-    constructor(id, imagen, descripcion) {
+    constructor(usrId, id, imagen, descripcion) {
+        this.usrid = usrId
         this.id = id
         this.imagen = imagen
         this.descripcion = descripcion

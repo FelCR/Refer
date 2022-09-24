@@ -1,5 +1,6 @@
 //------------------------------ INICIO DE SESIÓN -----------------------------------------
 
+
 function registrarse() {
     //debugger
     const nombre = prompt("Ingrese su nombre:")
@@ -24,20 +25,7 @@ function listaUsuarios() {
     }
 }
 
-function iniciarSesion() {
-    let usuario = prompt("Ingrese su correo")
-    let contrasena = prompt("Ingrese su contraseña")
-    //debugger
-    const pase1 = usuarios.filter((RegistroUsuario) => RegistroUsuario.correo == usuario)
-    const pase2 = pase1.some((pase1) => pase1.pass == contrasena)
 
-    if (pase2) {
-        alert("Bienvenido")
-    } else {
-        alert("No encontramos sus datos, lo invitamos a registrarse")
-    }
-    
-}
 
 /*function iniciarSesion2() {
     let usuario = document.getElementById("logMail")
@@ -80,26 +68,6 @@ function iniciarSesion() {
 
 function creoID() { return parseInt(Math.random() * 100000) }
 
-
-function agregarAlCarrito() {
-    let productoCarrito = prompt("¿Que producto le interesa?")
-    const art = productos.find((productos)=> Producto.nombre == productoCarrito)
-
-    if((art)) {
-        productosCarrito.push(new Producto())
-        cargadeProductos()
-        console.table(productosCarrito)
-    }
-}
-
-function generadorAutomatico() {
-    productos.push(new Producto(1234, "Lapiz negro", 10))
-    productos.push(new Producto(2345, "Lapiz azul", 10))
-    productos.push(new Producto(3456, "Lapiz rojo", 10))
-}
-
-//generadorAutomatico()
-
 function buscarProductos() {
     let prod = prompt("¿Qué artículo esta buscando?")
     const resultado = productos.filter(producto => producto.nombre.includes(prod))
@@ -123,17 +91,130 @@ function buscarProductos() {
      } 
 }
 
-function calcularCarrito() {
-    let total = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0)
-    console.log("Total a pagar: $", total)
-}
-
 
 
 // --------------------DOM---------------------------
 
 
 // CARGA DE PRODUCTOS SEGUN CATEGORÍA
+
+function agregarProducto() {
+    let id = creoID()
+    let prodName = document.querySelector("input.form-control.nombreProd").value
+    let prodDesc = document.querySelector("input.form-control.descProd").value
+    let precio = document.querySelector("input.form-control.precioProd").value
+    let prodCat = document.querySelector("select.form-select.form-select-sm.selectCat").value
+    let prodStock = document.querySelector("input.form-control.stockProd").value
+    const listadoProductos = document.getElementById("listadoProductos")
+    
+    listadoProductos.innerHTML="" 
+        switch(prodCat) {
+            case "Tecnologia":
+            tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(tech)
+            //cargadeProductosTiendaTech()
+            
+            //eliminarProd()
+            
+            break
+            case "Moda":
+            moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(moda)
+            //cargadeProductosTiendaModa()
+           
+            //eliminarProd()
+            
+            break
+            case "Belleza":
+            belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(belleza)
+            
+            
+            break
+            case "Servicios":
+            servicios.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(servicios)
+            
+            
+            break
+            case "Alimentos":
+            alimentos.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(alimentos)
+            
+            
+            break
+            case "Deportes":
+            deportes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(deportes)
+
+            
+            break
+            case "Herramientas":
+            herramientas.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(herramientas)
+            
+            
+            break
+            case "Muebles":
+            muebles.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(muebles)
+           
+            
+            break
+            case "Juguetes":
+            juguetes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(juguetes)
+            
+           
+            break
+            case "Libros":
+            libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
+            console.table(libros)
+            
+            
+            break
+        }
+
+        //listaTienda.reverse()
+        listaTienda.forEach(Producto => {
+            listadoProductos.innerHTML += 
+                                 `<div class=tarjetasTienda>
+                                 <div class="card" style="width: 18rem;">
+                                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${Producto.nombre}</h5>
+                                            <p class="card-text">${Producto.descripcion}</p>
+                                            <p><h7 class="precioTarjeta ">$ ${Producto.precio}</h7></p>
+                                            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
+                                            <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
+                                        </div>
+                                        </div>
+                                    </div>`
+}) 
+    const btnEliminar = document.querySelectorAll(".btnEliminar")
+    btnEliminar.forEach(boton=>{
+        boton.addEventListener("click",eliminarProd)
+})
+    Swal.fire('Producto agregado con éxito')
+    funcionalidad();  
+    displayProductos();
+
+   /* document.querySelector("input.form-control.nombreProd").value=""
+    document.querySelector("input.form-control.descProd").value=""
+    document.querySelector("input.form-control.precioProd").value=""
+    document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
+    document.querySelector("input.form-control.stockProd").value=""*/
+}
 
 function crearCards() {
     //listaTienda.reverse()
@@ -265,6 +346,8 @@ funcionalidad()
 
 }
 
+
+
 displayProductos()
 
 function displayInverso(){
@@ -277,126 +360,6 @@ function displayInverso(){
     console.table(listaEnTienda)
 }
 
-
-function agregarProducto() {
-    let id = creoID()
-    let prodName = document.querySelector("input.form-control.nombreProd").value
-    let prodDesc = document.querySelector("input.form-control.descProd").value
-    let precio = document.querySelector("input.form-control.precioProd").value
-    let prodCat = document.querySelector("select.form-select.form-select-sm.selectCat").value
-    let prodStock = document.querySelector("input.form-control.stockProd").value
-    const listadoProductos = document.getElementById("listadoProductos")
-    
-    listadoProductos.innerHTML="" 
-        switch(prodCat) {
-            case "Tecnologia":
-            tech.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(tech)
-            //cargadeProductosTiendaTech()
-            
-            //eliminarProd()
-            
-            break
-            case "Moda":
-            moda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(moda)
-            //cargadeProductosTiendaModa()
-           
-            //eliminarProd()
-            
-            break
-            case "Belleza":
-            belleza.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(belleza)
-            
-            
-            break
-            case "Servicios":
-            servicios.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(servicios)
-            
-            
-            break
-            case "Alimentos":
-            alimentos.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(alimentos)
-            
-            
-            break
-            case "Deportes":
-            deportes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(deportes)
-
-            
-            break
-            case "Herramientas":
-            herramientas.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(herramientas)
-            
-            
-            break
-            case "Muebles":
-            muebles.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(muebles)
-           
-            
-            break
-            case "Juguetes":
-            juguetes.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(juguetes)
-            
-           
-            break
-            case "Libros":
-            libros.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            listaTienda.push(new Producto(id, prodName, prodDesc, precio, prodCat, prodStock))
-            console.table(libros)
-            
-            
-            break
-        }
-
-        //listaTienda.reverse()
-        listaTienda.forEach(Producto => {
-            listadoProductos.innerHTML += 
-                                 `<div class=tarjetasTienda>
-                                 <div class="card" style="width: 18rem;">
-                                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">${Producto.nombre}</h5>
-                                            <p class="card-text">${Producto.descripcion}</p>
-                                            <p><h7 class="precioTarjeta ">$ ${Producto.precio}</h7></p>
-                                            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
-                                            <button type="button" class="btn btn-danger btnEliminar" data-id="${Producto.id}">Eliminar</button>
-                                        </div>
-                                        </div>
-                                    </div>`
-}) 
-    const btnEliminar = document.querySelectorAll(".btnEliminar")
-    btnEliminar.forEach(boton=>{
-        boton.addEventListener("click",eliminarProd)
-})
-    Swal.fire('Producto agregado con éxito')
-    funcionalidad();  
-    displayProductos();
-
-   /* document.querySelector("input.form-control.nombreProd").value=""
-    document.querySelector("input.form-control.descProd").value=""
-    document.querySelector("input.form-control.precioProd").value=""
-    document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
-    document.querySelector("input.form-control.stockProd").value=""*/
-}
-
-
 function descTienda() {
     let descpripcion = document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value
     const descripTienda = document.getElementById("descTienda")
@@ -408,11 +371,12 @@ btndescTienda.addEventListener(("click"), descTienda)
 
 
 function publicar() {
+    let usrId = "f2667"
     let id = creoID()
     let pubImg = document.querySelector("input#formFileSm.form-control.form-control-sm").value
     let pubText = document.querySelector("textarea#exampleFormControlTextarea1.form-control.contPublicacion").value
     const publiTienda = document.getElementById("publiTienda")
-    publicaciones.push(new Publicacion(id, pubImg, pubText))
+    publicaciones.push(new Publicacion(usrId, id, pubImg, pubText))
     publiTienda.innerHTML=""
     publicaciones.forEach(Publicacion => {
         publiTienda.innerHTML += 
@@ -422,10 +386,25 @@ function publicar() {
                                <p class="card-text">${Publicacion.descripcion}</p>
                              </div>
                              <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
-                           </div>`
+                            </div>`
 }) 
 displayPublicaciones()
 }
+
+function postear() {
+    publiTienda.innerHTML=""
+    publicaciones.forEach(Publicacion => {
+        publiTienda.innerHTML += 
+                             `<div class="card cardPublicacion">
+                             <div class="card-body">
+                             <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
+                               <p class="card-text">${Publicacion.descripcion}</p>
+                             </div>
+                             <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
+                            </div>`
+}) 
+}
+postear()
 
 btnPublicar.addEventListener(("click"), publicar)
 
@@ -449,7 +428,12 @@ function displayPublicaciones() {
 }) 
 }
 
+displayPublicaciones()
+
+
+
 //-------------------------------Carrito------------------------------------//
+const carritoCompra = document.querySelector("#carritoCompra");
 
 function funcionalidad() {
     listaTienda.forEach((Producto)=>{
@@ -495,6 +479,7 @@ function renderizarCarrito(){
     const totalCarrito = document.getElementById("totalCarrito")
     totalCarrito.innerText = carrito.reduce((acc,prod) => acc + prod.cantidad*prod.precio, 0)
     confirmacionCompra()
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function totalCarrito() {
@@ -532,6 +517,8 @@ function VaciarCarrito() {
     const totalCarrito = document.getElementById("totalCarrito")
     totalCarrito.innerText = carrito.reduce((acc,prod) => acc + prod.cantidad*prod.precio, 0)
     confirmacionCompra()
+    renderizarCarrito()
+
 }
 
 botonVaciar.addEventListener(`click`,VaciarCarrito)
@@ -565,3 +552,14 @@ function confirmacionCompra(){
 }
 
 confirmacionCompra()
+
+const recuperoInfoCarrito = () => {
+    //debugger
+    if (localStorage.carrito){
+        const objCarrito = JSON.parse(localStorage.getItem("carrito"))
+        renderizarCarrito()
+    }else {
+        console.log("CARRITO VACÍO")
+    }
+}
+recuperoInfoCarrito()

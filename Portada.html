@@ -10,7 +10,8 @@
     <script defer src="js/objetos.js"></script>
     <script defer src="js/arreglos.js"></script>
     <script defer src="js/variables.js"></script>
-    <script defer src="js/funciones.js"></script>
+    <!--<script defer src="js/funciones.js"></script>-->
+    <script defer src="js/Registro.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,15 +46,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form name="form" action="Index.html">
+                    <form name="form" id="formularioPortada">
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Correo</label>
-                          <input type="email" class="form-control" id="logMail" aria-describedby="emailHelp">
+                          <input type="email" class="form-control correoLogIn" id="logMail" aria-describedby="emailHelp">
                           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                          <input type="password" class="form-control" id="logPass">
+                          <input type="password" class="form-control passLogIn" id="logPass">
                         </div>
                         <button type="submit" class="btn btn-primary" id="btnLogIn">Ingresar</button>
                       </form>
@@ -64,26 +65,33 @@
         </div>
     </header>
     <section>
-        <div class="botonRegistrarse" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><a href="#">Registrarse</a></div>
+        <div class="botonRegistrarse" data-bs-toggle="modal" data-bs-target="#registroUsuario"><a href="#">Registrarse</a></div>
 
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">¡Registrate!</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <form class="formularioTexto">
-            <div>Nombre:*  <input type="text" name="nombre" size="20" placeholder="Nombre"><br><br> 
-            <div>Edad:*  <input type="text" name="edad" size="2" placeholder="Edad"><br><br>
-            <div>Telefono:*  <input type="text" name="telefono" size="20" placeholder="Telefono"><br><br>   
-            <div>Correo:*  <input type="text" name="correo" size="20" placeholder="Correo"><br><br> 
-            <div>Contraseña:*  <input type="text" name="pass" size="20" placeholder="Contraseña"><br><br> 
-              <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+        <!-- Modal -->
+            <div class="modal fade" id="registroUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="formularioTexto">
+                      <p>Nombre:*  <input type="text" name="nombre" size="20" placeholder="Nombre" class="usrNombre"><br><br></p> 
+                      <p>Apellido:*  <input type="text" name="nombre" size="20" placeholder="Apellidos" class="usrApellido"><br><br></p> 
+                      <p>Fecha de Nac.*:<input type="date" name="fecha" class="usrEdad"><br><br></p>
+                      <p>Telefono:*  <input type="text" name="telefono" size="20" placeholder="Telefono" class="usrTelefono"><br><br></p>   
+                      <p>Correo:*  <input type="text" name="correo" size="20" placeholder="Correo" class="usrCorreo"><br><br></p> 
+                      <p>Contraseña:*  <input type="text" name="pass" size="20" placeholder="Contraseña" class="usrPass"><br><br></p>
+                  </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary btn-UsrReg" data-bs-dismiss="modal">Enviar</button>
+                  </div>
+                </div>
               </div>
-        </form>
-        </div>
-        </div>
+            </div>
     </section>
 
 </body>

@@ -165,8 +165,7 @@
     height: auto;
     width: 95%;
     align-self: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 40px;
     //background-color: aquamarine;
     display: flex;
 }
@@ -306,6 +305,66 @@ footer {
 #comprarCarrito {
     margin-left: 20px;
     margin-right: 20px;
+}
+
+#productoIndex {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#publicacionIndex {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    //flex-wrap: wrap;
+    //flex-direction: row-reverse;
+    flex-flow: row-reverse wrap;
+}
+
+#tiendasIndex {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    //flex-wrap: wrap;
+    //flex-direction: row-reverse;
+    flex-flow: row-reverse wrap;
+}
+
+#imgProd {
+    width: 90%;
+}
+
+.carDetalle {
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+.cardTitel {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#detalle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.cardDesc {
+    text-align: justify;
 }
 
 
