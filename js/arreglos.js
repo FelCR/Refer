@@ -14,36 +14,100 @@ let listaTienda = [
     
     {
         id:1234,
-        nombre:"Producto1",
-        descripcion:"Descripcion1",
+        nombre:"Producto 1",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
-        categoria:"tech",
-        stock:1,
+        categoria:"Tecnología",
+        stock:1
     },
     {
         id:2345,
-        nombre:"Producto2",
-        descripcion:"Descripcion2",
+        nombre:"Producto 2",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
-        categoria:"tech",
-        stock:1,
+        categoria:"Tecnología",
+        stock:1
     },
     {
         id:3456,
-        nombre:"Producto3",
-        descripcion:"Descripcion3",
+        nombre:"Producto 3",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
-        categoria:"tech",
-        stock:1,
+        categoria:"Tecnología",
+        stock:1
     },
     {
         id:4567,
-        nombre:"Producto4",
-        descripcion:"Descripcion4",
+        nombre:"Producto 4",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
-        categoria:"tech",
-        stock:1,
+        categoria:"Tecnología",
+        stock:1
     },
+    {
+        id:5678,
+        nombre:"Producto 5",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:6789,
+        nombre:"Producto 6",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:9876,
+        nombre:"Producto 7",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:8765,
+        nombre:"Producto 8",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:7654,
+        nombre:"Producto 9",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:6543,
+        nombre:"Producto 10",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:5432,
+        nombre:"Producto 11",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:4321,
+        nombre:"Producto 12",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    }
 
 ]
 let listaEnTienda = []

@@ -2,6 +2,7 @@ const productoPortadaIndex = document.querySelector("#productoIndex");
 const publicacionIndex = document.getElementById("publicacionIndex");
 const detalle = document.querySelector("section#detalle");
 const volver = document.querySelector("div.emoji-volver");
+const botonAgregarCarrito = document.querySelector(`#btn-agregar${Producto.id}`)
 
 let prodIndex = []
 let contenidoHTML = ""
@@ -9,6 +10,7 @@ let contenidoHTML = ""
 //-------------------------------- CONTENIDO INDEX ------------------------------------
 
 const cardsProductosIndex = (Producto) => {
+    console.log("cardsProductosIndex")  
     return `<div class=tarjetasTienda>
     <div class="card" style="width: 18rem;">
         <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" onclick="guardarContenidoEnLS('${Producto.id}')">
@@ -16,11 +18,10 @@ const cardsProductosIndex = (Producto) => {
             <h5 class="card-title">${Producto.nombre}</h5>
             <p class="card-text">${Producto.descripcion}</p>
             <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
-            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
+            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" onclick="agregarCarrito('${Producto.id}')">Agregar al Carrito</button>
         </div>
         </div>
-    </div>`
-                         
+    </div>`             
 }
 function funcionalidad() {
     listaTienda.forEach((Producto)=>{
@@ -49,9 +50,9 @@ const cargarCont = async () => {
                     contenidoHTML += cardsProductosIndex(Producto)
                 })}
                 productoPortadaIndex.innerHTML = contenidoHTML
-            })
-            .then (funcionAddCarrito())
-            .catch((error) => console.log("ERROR"))           
+            })   
+            console.log("cargar Contenido")
+                 
 }
 
 /*
@@ -81,6 +82,7 @@ const guardarContenidoEnLS = (id) => {
             localStorage.setItem("detalle", JSON.stringify(resultado))
             location.href = "detalle.html"
         }
+        console.log("guardar contenido en LS")  
 }
 
 // DISPLAY DEL DETALLE
@@ -117,118 +119,43 @@ const recuperoInfo = () => {
     }else {
         console.log("ERROR")
     }
+    console.log("recuperoInfo")  
 }
 recuperoInfo()
-//------------------ CARRITO -----------------------------------
-function funcionAddCarrito() {
+//------------------------------------ AGREGAR AL CARRITO -----------------------------------
+
+function funcionalidad() {
     listaTienda.forEach((Producto)=>{
-        document.querySelector(`#btn-agregar${Producto.id}`).addEventListener("click", () =>{
+        botonAgregarCarrito.addEventListener("click", () =>{
             console.log(Producto)
+            agregarCarrito(Producto)
+            Swal.fire('Agregado al carrito')
         })
     })
 }
 
-/*function displayProductosIndex() {
-    let lengthListaTienda = listaTienda.length
-    console.log(lengthListaTienda)
-    //console.log(productoPortada)
-    
-    if(lengthListaTienda>4){
-    let iniLista = listaTienda.length-4
-    let finLista = listaTienda.length+1
-    let listaEnTienda = listaTienda.slice(iniLista, finLista)
-    //console.table(listaEnTienda)
-    
-    productoPortadaIndex.innerHTML=""
-    listaEnTienda.forEach(Producto => {
-        productoPortadaIndex.innerHTML += 
-                    `<div class=tarjetasTienda>
-                    <div class="card" style="width: 18rem;">
-                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">${Producto.nombre}</h5>
-                            <p class="card-text">${Producto.descripcion}</p>
-                            <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
-                            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
-                        </div>
-                        </div>
-                    </div>`
-        
-})} else{
-    //debugger
-    console.log(productoPortadaIndex)
-    productoPortadaIndex.innerHTML=""
-    listaTienda.forEach(Producto => {
-        productoPortadaIndex.innerHTML += 
-                    `<div class=tarjetasTienda>
-                    <div class="card" style="width: 18rem;">
-                        <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">${Producto.nombre}</h5>
-                            <p class="card-text">${Producto.descripcion}</p>
-                            <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
-                            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" >Agregar al Carrito</button>
-                        </div>
-                        </div>
-                    </div>`
-})}
-
-funcionalidad()
-
+function agregarCarrito(id) {
+    let resultado = listaTienda.find((Producto) => Producto.id == id)
+    if(resultado) {
+        let existe = carrito.some((productoSome) => productoSome.id === Producto.id);
+    if (existe === false) {
+        Producto.cantidad = 1;
+        carrito.push(Producto)
+    } else {
+        let prodFind = carrito.find((productoFind) => productoFind.id === Producto.id);
+        prodFind.cantidad++;
+    }
+    }
+    console.log(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    /**/
+    console.log(carrito);
+    //localStorage.setItem("carrito", JSON.stringify(carrito));
+    //renderizarCarrito();
+    //borrarProducto();
+    //const btnBorrar = document.querySelectorAll(".btnBorrar")
+    //btnBorrar.forEach(boton=>{
+        //boton.addEventListener("click",borrarProd)
+    //})
+    //Swal.fire('Agregado al carrito')
 }
-displayProductosIndex()*/
-
-function displayPublicacionesIndex() {
-    let lengthPublicaciones = publicaciones.length
-    console.log(lengthPublicaciones)
-    let iniLista = publicaciones.length-2
-    let finLista = publicaciones.length+1
-    let publiDisplay = publicaciones.slice(iniLista, finLista)
-    publicacionIndex.innerHTML=""
-    publiDisplay.forEach(Publicacion => {
-        publicacionIndex.innerHTML += 
-                             `<div class="card cardPublicacion">
-                             <div class="card-body">
-                             <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
-                               <p class="card-text">${Publicacion.descripcion}</p>
-                             </div>
-                             <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
-                           </div>`
-}) 
-}
-
-function postearIndex() {
-    //debugger
-    const publicacionIndex = document.querySelector("#publicacionIndex")
-    publicacionIndex.innerHTML=""
-    publicaciones.forEach(Publicacion => {
-        publicacionIndex.innerHTML += 
-                             `<div class="card cardPublicacion">
-                             <div class="card-body">
-                             <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
-                               <p class="card-text">${Publicacion.descripcion}</p>
-                             </div>
-                             <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
-                            </div>`
-}) 
-}
-postearIndex()
-
-function tiendasIndex() {
-    //debugger
-    const tiendasIndex = document.querySelector("#tiendasIndex")
-    tiendasIndex.innerHTML=""
-    tiendas.forEach(RegistroTienda => {
-        tiendasIndex.innerHTML += 
-                             `<div class="card" style="width: 18rem;">
-                             <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
-                             <div class="card-body">
-                               <h5 class="card-title">"${RegistroTienda.nombre}"</h5>
-                               <p class="card-text">"${RegistroTienda.descripcion}"</p>
-                               <a href="#" class="btn btn-primary">Go somewhere</a>
-                             </div>
-                           </div>`
-}) 
-}
-
-//tiendasIndex()
