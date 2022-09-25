@@ -27,6 +27,7 @@ function retornoDetalle (detalle) {
 
 // RECUPERAR CONTENIDO
 function recuperoInfo () {
+    debugger
                 detalle.innerHTML = retornoDetalle(objDetalle)
                 console.table(objDetalle)
 }
@@ -34,7 +35,7 @@ recuperoInfo()
 //-------------------------------AGREGAR AL CARRITO------------------------------------//
 
 function agregarCarrito(objDetalle){
-    //debugger
+    debugger
     let carrito = JSON.parse(localStorage.getItem("carrito"))
     let existe = carrito.some((productoSome) => productoSome.id === objDetalle.id);
     if (existe === false) {

@@ -1,13 +1,16 @@
+//-------------------------------- VARIABLES ------------------------------------//
+
 const productoPortadaIndex = document.querySelector("#productoIndex");
 const publicacionIndex = document.getElementById("publicacionIndex");
 const detalle = document.querySelector("section#detalle");
 const volver = document.querySelector("div.emoji-volver");
-const botonAgregarCarrito = document.querySelector(`#btn-agregar${Producto.id}`)
 
 let prodIndex = []
 let contenidoHTML = ""
 
-//-------------------------------- CONTENIDO INDEX ------------------------------------
+//-------------------------------- CONTENIDO INDEX ------------------------------------//
+
+//RENDERIZADO DE CARDS PRODUCTOS
 
 const cardsProductosIndex = (Producto) => {
     console.log("cardsProductosIndex")  
@@ -18,28 +21,20 @@ const cardsProductosIndex = (Producto) => {
             <h5 class="card-title">${Producto.nombre}</h5>
             <p class="card-text">${Producto.descripcion}</p>
             <p><h7 class="precioTarjeta">$ ${Producto.precio}</h7></p>
-            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}" onclick="agregarCarrito('${Producto.id}')">Agregar al Carrito</button>
+            <button type="button" class="btn btn-primary" id="btn-agregar${Producto.id}">Agregar al Carrito</button>
         </div>
         </div>
     </div>`             
 }
-function funcionalidad() {
-    listaTienda.forEach((Producto)=>{
-        document.querySelector(`#btn-agregar${Producto.id}`).addEventListener("click", () =>{
-            console.log(Producto)
-            agregarCarrito(Producto)
-            Swal.fire('Agregado al carrito')
-        })
-    })
-}
 
+// FUNCION ASINCRÓNICA CARGA DE CONTENIDO DESDE BACK END
 
-// FUNCION ASINCRÓNICA
 const cargarCont = async () => {
    await fetch(`js/Producto.json`)
             .then ((response) => response.json())
             .then ((data) => {
-                listaTienda = data
+                listaTiendaBE = data
+                pushDatosTienda() 
                 if (listaTienda.length>8){
                     let iniLista = listaTienda.length-8
                     let finLista = listaTienda.length+1
@@ -48,33 +43,17 @@ const cargarCont = async () => {
                 
                 listaEnIndex.forEach(Producto => {
                     contenidoHTML += cardsProductosIndex(Producto)
+                    
                 })}
                 productoPortadaIndex.innerHTML = contenidoHTML
             })   
             console.log("cargar Contenido")
-                 
+                       
 }
-
-/*
-const cargarCont = async () => {
-    await fetch(`js/Producto.json`)
-             .then ((response) => response.json())
-             .then ((data) => {
-                listaTienda = data
-             })
-             .catch((error) => console.log("ERROR"))
-             .finally( () => {
-                 listaTienda.forEach((Producto)=>{
-                     //console.log(Producto.id)
-                     let botones = document.querySelector(`#btn-agregar${Producto.id}`)
-                     console.log(botones)
-                     })
-                 })            
- }
- */
 cargarCont()
 
-// CARGAR INFO EN LS
+// CARGAR INFO EN LS Y RUTA A DETALLE DEL PRODUCTO
+
 const guardarContenidoEnLS = (id) => {
     //debugger
     let resultado = listaTienda.find((Producto) => Producto.id == id)
@@ -85,59 +64,21 @@ const guardarContenidoEnLS = (id) => {
         console.log("guardar contenido en LS")  
 }
 
-// DISPLAY DEL DETALLE
-const retornoDetalle = (detalle) => {
-    const {id, nombre, descripcion, precio, categoria, stock} = detalle 
-    return `<div class="row">
-    <div class="col-8"><img src="Pictures/producto.webp" id="imgProd"></div>
-    <div class="col-4">
-      <div class="card carDetalle" style="width: 18rem;">
-        <h3 class="card-title cardTitel">${nombre}</h3>
-        <div class="card-body">
-          <h4 class="card-text">$ ${precio}</h4>
-          <p class="cardDesc">${descripcion}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${categoria}</li>
-          <li class="list-group-item">Tienda</li>
-          <li class="list-group-item">Stock : ${stock}</li>
-        </ul>
-        <div class="card-body">
-          <button type="button" class="btn btn-primary" id="btn-agregar${id}" >Agregar al Carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>`
-}
+//------------------------------------ AGREGAMOS LA INFO DEL BACK END A LISTATIENDA -----------------------------------//
 
-
-// RECUPERAR CONTENIDO
-const recuperoInfo = () => {
-    if (localStorage.detalle){
-        const objDetalle = JSON.parse(localStorage.getItem("detalle"))
-                detalle.innerHTML = retornoDetalle(objDetalle)
-    }else {
-        console.log("ERROR")
-    }
-    console.log("recuperoInfo")  
-}
-recuperoInfo()
-//------------------------------------ AGREGAR AL CARRITO -----------------------------------
-
-function funcionalidad() {
-    listaTienda.forEach((Producto)=>{
-        botonAgregarCarrito.addEventListener("click", () =>{
-            console.log(Producto)
-            agregarCarrito(Producto)
-            Swal.fire('Agregado al carrito')
-        })
+function pushDatosTienda() {
+    listaTiendaBE.forEach((Producto) => {
+        listaTienda.push(Producto)
     })
+    console.log(listaTienda)
 }
 
-function agregarCarrito(id) {
-    let resultado = listaTienda.find((Producto) => Producto.id == id)
-    if(resultado) {
-        let existe = carrito.some((productoSome) => productoSome.id === Producto.id);
+//------------------------------------ AGREGAR AL CARRITO -----------------------------------//
+/*
+function agregarCarrito() {
+    debugger
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    let existe = carrito.some((productoSome) => productoSome.id === Producto.id);
     if (existe === false) {
         Producto.cantidad = 1;
         carrito.push(Producto)
@@ -145,17 +86,31 @@ function agregarCarrito(id) {
         let prodFind = carrito.find((productoFind) => productoFind.id === Producto.id);
         prodFind.cantidad++;
     }
+    console.log(carrito);
+    //localStorage.setItem("carrito", JSON.stringify(carrito));
+    Swal.fire('Agregado al carrito')
+}*/
+
+function funcionalidad() {
+    listaTienda.forEach((Producto)=>{
+        document.querySelector(`#btn-agregar${Producto.id}`).addEventListener("click", () =>{
+            console.log(Producto)
+            agregarCarrito(Producto)
+            Swal.fire('Agregado al carrito')
+        })
+    })
+}
+
+function agregarCarrito(Producto){
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    let existe = carrito.some((productoSome) => productoSome.id === Producto.id);
+    if (existe === false) {
+        Producto.cantidad = 1;
+        carrito.push(Producto)
+    } else {
+        let prodFind = carrito.find((productoFind) => productoFind.id === Producto.id);
+        prodFind.cantidad++;
     }
     console.log(carrito);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    /**/
-    console.log(carrito);
-    //localStorage.setItem("carrito", JSON.stringify(carrito));
-    //renderizarCarrito();
-    //borrarProducto();
-    //const btnBorrar = document.querySelectorAll(".btnBorrar")
-    //btnBorrar.forEach(boton=>{
-        //boton.addEventListener("click",borrarProd)
-    //})
-    //Swal.fire('Agregado al carrito')
 }

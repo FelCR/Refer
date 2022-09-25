@@ -1,4 +1,9 @@
-//---------------------- INICIA TIENDA EN LÍNEA ------------------------
+//----------------------- VARIABLES TIENDA ---------------------------//
+const btndescTienda = document.querySelector("button.btn.btn-primary.btndescTienda")
+const btnPublicar = document.querySelector("button.btn.btn-primary.btnPublicar")
+const btnprodAdd = document.querySelector("button#botonAgregarProducto.btn.btn-primary")
+
+//---------------------- INICIA TIENDA EN LÍNEA ------------------------//
 
 function creoID() { return parseInt(Math.random() * 100000) }
 
@@ -26,11 +31,7 @@ function buscarProductos() {
 }
 
 
-
-// --------------------DOM---------------------------
-
-
-// CARGA DE PRODUCTOS SEGUN CATEGORÍA
+//-----------------------------------CARGA DE PRODUCTOS SEGUN CATEGORÍA --------------------------------------//
 
 function agregarProducto() {
     let id = creoID()
@@ -149,6 +150,9 @@ function agregarProducto() {
     document.querySelector("select.form-select.form-select-sm.selectCat").selectedIndex = 0
     document.querySelector("input.form-control.stockProd").value=""*/
 }
+btnprodAdd.addEventListener(("click"), agregarProducto)
+
+//------------------------------ RENDERIZADO AUTOMATICO DE PRODUCTOS ---------------------------------//
 
 function crearCards() {
     //listaTienda.reverse()
@@ -174,25 +178,9 @@ function crearCards() {
     boton.addEventListener("click",eliminarProd)
 })
 }
-
 crearCards()
 
-
-function addDesdeCampos () {
-        console.log(camposAddProducto.value)
-
-        console.log(camposAddProducto1.value)
-
-        console.log(camposAddProducto2.value)
-
-        console.log(camposAddProducto3.value)
-
-        console.log(camposAddProducto4.value)
-
-}
-btnprodAdd.addEventListener(("click"), agregarProducto)
-
-
+//--------------------------- FUNCION ELIMINAR PRODUCTO DEL CATALOGO ---------------------------//
 
 function eliminarProd(e) {
     //debugger
@@ -229,6 +217,8 @@ funcionalidad()
 displayProductos()
 Swal.fire('Producto eliminado')
 }
+
+//---------------------------------- DISPLAY DE PRODUCTOS EN INICIO DE LA TIENDA ----------------------------------//
 
 function displayProductos() {
     //debugger
@@ -276,21 +266,11 @@ function displayProductos() {
                                     </div>
                                 </div>`
 })}
-
 funcionalidad()
-
 }
 displayProductos()
 
-function displayInverso(){
-    let lengthListaTienda = listaTienda.length
-    console.log(lengthListaTienda)
-    let iniLista = listaTienda.length-4
-    let finLista = listaTienda.length+1
-    let listaEnTienda = listaTienda.slice(iniLista, finLista)
-    listaEnTienda.reverse()
-    console.table(listaEnTienda)
-}
+//------------------------------ EDITAR LA DESCRIPCIÓN DE LA TIENDA ---------------------------//
 
 function descTienda() {
     let descpripcion = document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value
@@ -301,6 +281,7 @@ function descTienda() {
 
 btndescTienda.addEventListener(("click"), descTienda)
 
+//----------------------------- FUNCION PARA CREAR PUBLICACIONES -------------------------------//
 
 function publicar() {
     let usrId = "f2667"
@@ -322,6 +303,8 @@ function publicar() {
 }) 
 displayPublicaciones()
 }
+btnPublicar.addEventListener(("click"), publicar)
+
 
 function postear() {
     publiTienda.innerHTML=""
@@ -338,7 +321,9 @@ function postear() {
 }
 postear()
 
-btnPublicar.addEventListener(("click"), publicar)
+
+
+//---------------------------- GENERADOR DE PUBLICACIONES EN INICIO ------------------------//
 
 function displayPublicaciones() {
     const publicacionesPortada = document.getElementById("publicacionesPortada")
@@ -398,10 +383,4 @@ function agregarCarrito(Producto){
     }
     console.log(carrito);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    //renderizarCarrito();
-    //borrarProducto();
-    //const btnBorrar = document.querySelectorAll(".btnBorrar")
-    //btnBorrar.forEach(boton=>{
-        //boton.addEventListener("click",borrarProd)
-    //})
 }

@@ -11,7 +11,7 @@ const usuarios = [
 ]
 const categorias = []
 let listaTienda = [
-    
+    /*
     {
         id:1234,
         nombre:"Producto 1",
@@ -107,7 +107,7 @@ let listaTienda = [
         precio:500,
         categoria:"Tecnología",
         stock:1
-    }
+    }*/
 
 ]
 let listaEnTienda = []
