@@ -137,7 +137,7 @@ const cargarCont = async () => {
 cargarCont()
 console.log("prueba")
 
-// CARGAR INFO EN LS Y RUTA A DETALLE DEL PRODUCTO
+//------------------------------ CARGAR INFO DETALLE EN LS Y RUTA A DETALLE DEL PRODUCTO ----------------------------------//
 
 const guardarContenidoEnLS = (id) => {
     //debugger

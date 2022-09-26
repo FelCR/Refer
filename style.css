@@ -213,7 +213,7 @@
   font-size: 20px;
 }
 
-#descTiendaUsr {
+#descTiendaCliente {
   height: auto;
   width: 95%;
   margin-left: 25px;
@@ -353,7 +353,7 @@ footer {
           flex-direction: row-reverse;
 }
 
-#productoPortadaUsr {
+#productoPortadaCliente {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -372,7 +372,7 @@ footer {
           flex-direction: row-reverse;
 }
 
-#listadoProductosUsr {
+#listadoProductosCliente {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -408,7 +408,7 @@ footer {
           flex-flow: row-reverse wrap;
 }
 
-#publicacionesPortadaUsr {
+#publicacionesPortadaCliente {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

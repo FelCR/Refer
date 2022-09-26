@@ -26,12 +26,14 @@ function cardsTiendas() {
 }
 cardsTiendas()
 
-/*const visitarTienda = (storeId) => {
+//------------------------------ CARGAR INFO TIENDA EN LS Y RUTA A LA TIENDA SEÑALADA ----------------------------------//
+
+const visitarTienda = (id) => {
     //debugger
-    let resultado = listaTienda.find((Tienda) => Tienda.storeId == storeId)
-        if(resultado) {
-            localStorage.setItem("Tienda", JSON.stringify(resultado))
-            location.href = "TiendaUsr.html"
+    let resultadoTienda = tiendas.find((Tienda) => Tienda.storeId == id)
+        if(resultadoTienda) {
+            localStorage.setItem("Tienda", JSON.stringify(resultadoTienda))
+            location.href = "TiendaCliente.html"
         }
         console.log("guardar contenido en LS")  
-}*/
+}

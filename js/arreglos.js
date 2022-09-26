@@ -13,6 +13,7 @@ const categorias = []
 let listaTienda = [
     {
         id:1234,
+        storeId:334455,
         nombre:"Producto 1",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -21,6 +22,7 @@ let listaTienda = [
     },
     {
         id:2345,
+        storeId:334488,
         nombre:"Producto 2",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -29,6 +31,7 @@ let listaTienda = [
     },
     {
         id:3456,
+        storeId:334455,
         nombre:"Producto 3",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -37,6 +40,7 @@ let listaTienda = [
     },
     {
         id:4567,
+        storeId:334477,
         nombre:"Producto 4",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -45,6 +49,7 @@ let listaTienda = [
     },
     {
         id:5678,
+        storeId:334466,
         nombre:"Producto 5",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -53,6 +58,7 @@ let listaTienda = [
     },
     {
         id:6789,
+        storeId:334455,
         nombre:"Producto 6",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -61,6 +67,7 @@ let listaTienda = [
     },
     {
         id:9876,
+        storeId:334466,
         nombre:"Producto 7",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -69,6 +76,7 @@ let listaTienda = [
     },
     {
         id:8765,
+        storeId:334455,
         nombre:"Producto 8",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -77,6 +85,7 @@ let listaTienda = [
     },
     {
         id:7654,
+        storeId:334477,
         nombre:"Producto 9",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -85,6 +94,7 @@ let listaTienda = [
     },
     {
         id:6543,
+        storeId:334488,
         nombre:"Producto 10",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -93,6 +103,7 @@ let listaTienda = [
     },
     {
         id:5432,
+        storeId:334488,
         nombre:"Producto 11",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
@@ -101,7 +112,44 @@ let listaTienda = [
     },
     {
         id:4321,
+        storeId:334466,
         nombre:"Producto 12",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:1029,
+        storeId:334477,
+        nombre:"Producto 13",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:2910,
+        storeId:334477,
+        nombre:"Producto 14",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:3847,
+        storeId:334488,
+        nombre:"Producto 15",
+        descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
+        precio:500,
+        categoria:"Tecnología",
+        stock:1
+    },
+    {
+        id:4738,
+        storeId:334466,
+        nombre:"Producto 16",
         descripcion:"Lorem ipsum dolor sit amet. Aut repellendus sapiente ut debitis necessitatibus aut tempora eligendi? Et saepe dolorum aut cupiditate accusamus non vero maxime est quaerat eius qui minus sunt qui nihil illo.",
         precio:500,
         categoria:"Tecnología",

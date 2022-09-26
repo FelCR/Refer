@@ -11,7 +11,7 @@
     <script defer src="js/arreglos.js"></script>
     <script defer src="js/variables.js"></script>
     <!--<script defer src="js/Tienda.js"></script>-->
-    <script defer src="js/TiendaUsr.js"></script>
+    <script defer src="js/TiendaCliente.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,7 +81,7 @@
     <section id="seccionIndex">
         
       <div class="portadaTienda">
-         <div><img src="Pictures/Perfil2.png" class="logoTienda" alt="..."></div>
+         <div id="nombreTienda"></div>
          </div>
 
          <div class="menu"><ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -101,7 +101,6 @@
             <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
           </li>-->
           </ul></div>
-    </div>
   
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
@@ -133,11 +132,11 @@
           </div>
         </div>
     </div>
-    <div id="descTiendaUsr"></div>
+    <div id="descTiendaCliente"></div>
     <div class="tituloTienda"><h2>Lo más nuevo</h2></div>
-    <div id="productoPortadaUsr"></div><br><br>
+    <div id="productoPortadaCliente"></div><br><br>
     <div class="tituloTienda"><h2>Reciente</h2></div>
-      <div id="publicacionesPortadaUsr"></div>
+      <div id="publicacionesPortadaCliente"></div>
     </div>
 
   <!--CATALOGO-->
@@ -186,7 +185,7 @@
           </div>
         </div>
     </div><br>
-    <div id="listadoProductosUsr"></div>
+    <div id="listadoProductosCliente"></div>
   </div>
      
   <!--PUBLICACIONES-->
@@ -225,8 +224,11 @@
       </div>
       <div id="publiTiendaCliente"></div>
     </div>
+
   </div>
-    
+
+        
+        
     </section>
 
     <footer>

@@ -1,13 +1,14 @@
+let objDetalleTienda = JSON.parse(localStorage.getItem("Tienda"))
 
 
 //---------------------------------- PUBLICACIONES TIENDA CLIENTES ------------------------------------//
 
-function publicacionTiendaUsr() {
-    let publiTiendaUsr = JSON.parse(localStorage.getItem("Publicacion"))
-    console.log(publiTiendaUsr)
-    if(publiTiendaUsr){
+function publicacionTiendaCliente() {
+    let publiTiendaClientes = JSON.parse(localStorage.getItem("Publicacion"))
+    console.log(publiTiendaClientes)
+    if(publiTiendaClientes){
         publiTiendaCliente.innerHTML=""
-        publiTiendaUsr.forEach(Publicacion => {
+        publiTiendaClientes.forEach(Publicacion => {
         publiTiendaCliente.innerHTML += 
                              `<div class="card cardPublicacion">
                              <div class="card-body">
@@ -22,18 +23,20 @@ function publicacionTiendaUsr() {
         descripTienda.innerHTML ="" 
     }
 }
-publicacionTiendaUsr()
+publicacionTiendaCliente()
 
-function displayPublicaciones() {
-    const publicacionesPortadaUsr = document.getElementById("publicacionesPortadaUsr")
+//---------------------------------- PUBLICACIONES PORTADA TIENDA CLIENTES ------------------------------------//
+
+function displayPublicacionesClientes() {
+    const publicacionesPortadaCliente = document.getElementById("publicacionesPortadaCliente")
     let lengthPublicaciones = publicaciones.length
     console.log(lengthPublicaciones)
     let iniLista = publicaciones.length-2
     let finLista = publicaciones.length+1
     let publiDisplay = publicaciones.slice(iniLista, finLista)
-    publicacionesPortadaUsr.innerHTML=""
+    publicacionesPortadaCliente.innerHTML=""
     publiDisplay.forEach(Publicacion => {
-        publicacionesPortadaUsr.innerHTML += 
+        publicacionesPortadaCliente.innerHTML += 
                              `<div class="card cardPublicacion">
                              <div class="card-body">
                              <div><img src="Pictures/Perfil2.png" class="logoTiendaPub" alt="..."></div>
@@ -42,47 +45,46 @@ function displayPublicaciones() {
                              <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
                            </div>`
 })
- 
 }
-
-displayPublicaciones()
+displayPublicacionesClientes()
 
 //--------------------------------- DESCRIPCION TIENDA CLIENTES -----------------------------------------//
 
-function DescTiendaUsr() {
-    let descripcionTienda = JSON.parse(localStorage.getItem("Descripcion"))
+function DescTiendaClientes(descripcionTienda) {
+    const {descripcion} = descripcionTienda
     //console.log(descripcionTienda)
-    if(descripcionTienda){
-        const descripTienda = document.getElementById("descTiendaUsr")
-        descripTienda.innerHTML =
-                    `<p class=descripcion>${descripcionTienda}</p>`
-    }else{
-        const descripTienda = document.getElementById("descTiendaUsr")
-        descripTienda.innerHTML ="" 
-    }
+    return `<p class=descripcion>${descripcion}</p>`
 }
-DescTiendaUsr()
-
+// RECUPERAR CONTENIDO
+function recuperoInfoDescripcion () {
+    //debugger
+                descTiendaCliente.innerHTML = DescTiendaClientes(objDetalleTienda)
+                console.table(objDetalleTienda)
+}
+recuperoInfoDescripcion ()
 
 //---------------------------------- DISPLAY DE PRODUCTOS EN INICIO DE LA TIENDA ----------------------------------//
-function displayProductos() {
-    let productosTiendaBE = JSON.parse(localStorage.getItem("Producto"))
-    //console.table(productosTiendaBE)
-    const productoPortadaUsr = document.querySelector("#productoPortadaUsr");
+
+function displayProductosClientes() {
+    let idTienda = objDetalleTienda.storeId
+    console.log(idTienda)
+    //let productosTienda = listaTienda.filter(listaTienda.storeId == idTienda)
+    const prodsTienda = listaTienda.filter(producto => producto.storeId == idTienda)
+    console.table(prodsTienda)
     
-    let lengthListaTienda = productosTiendaBE.length
+    let lengthListaTienda = prodsTienda.length
     console.log(lengthListaTienda)
     //console.log(productoPortada)
     
     if(lengthListaTienda>4){
-    let iniLista = productosTiendaBE.length-4
-    let finLista = productosTiendaBE.length+1
-    let listaEnTienda = productosTiendaBE.slice(iniLista, finLista)
+    let iniLista = prodsTienda.length-4
+    let finLista = prodsTienda.length+1
+    let listaEnTienda = prodsTienda.slice(iniLista, finLista)
     //console.table(listaEnTienda)
     
-    productoPortadaUsr.innerHTML=""
+    productoPortadaCliente.innerHTML=""
     listaEnTienda.forEach(Producto => {
-        productoPortadaUsr.innerHTML += 
+        productoPortadaCliente.innerHTML += 
                                 `<div class=tarjetasTienda>
                                 <div class="card" style="width: 18rem;">
                                     <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
@@ -96,10 +98,10 @@ function displayProductos() {
                                 </div>`
 })} else{
     //debugger
-    console.log(productoPortada)
-    productoPortadaUsr.innerHTML=""
-    productosTiendaBE.forEach(Producto => {
-        productoPortadaUsr.innerHTML += 
+    //console.log(productoPortada)
+    productoPortadaCliente.innerHTML=""
+    prodsTienda.forEach(Producto => {
+        productoPortadaCliente.innerHTML += 
                                 `<div class=tarjetasTienda>
                                 <div class="card" style="width: 18rem;">
                                     <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
@@ -113,16 +115,22 @@ function displayProductos() {
                                 </div>`
 })}
 }
-displayProductos()
+displayProductosClientes()
 
 //---------------------------------- DISPLAY DE PRODUCTOS EN CATALOGO DE LA TIENDA ----------------------------------//
-function cardsProductos() {
-    let productosTiendaBE = JSON.parse(localStorage.getItem("Producto"))
-    //console.table(productosTiendaBE)
-    const listadoProductosUsr = document.querySelector("#listadoProductosUsr");
-    listadoProductosUsr.innerHTML=""
-    productosTiendaBE.forEach(Producto => {
-        listadoProductosUsr.innerHTML += 
+
+function productoDeTienda() {
+    //debugger
+    let idTienda = objDetalleTienda.storeId
+    console.log(idTienda)
+    //let productosTienda = listaTienda.filter(listaTienda.storeId == idTienda)
+    const prodsTienda = listaTienda.filter(producto => producto.storeId == idTienda)
+    console.table(prodsTienda)
+
+    const listadoProductosCliente = document.querySelector("#listadoProductosCliente");
+    listadoProductosCliente.innerHTML=""
+    prodsTienda.forEach(Producto => {
+        listadoProductosCliente.innerHTML += 
                                 `<div class=tarjetasTienda>
                                 <div class="card" style="width: 18rem;">
                                     <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
@@ -136,7 +144,7 @@ function cardsProductos() {
                                 </div>`
 })
 }
-cardsProductos()
+productoDeTienda()
 
 //-------------------------------DETALLES DEL PRODUCTO----------------------------------//
 

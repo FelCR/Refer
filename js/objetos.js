@@ -15,8 +15,9 @@ class RegistroUsuario {
 }
 
 class Producto {
-    constructor(id, nombre, descripcion, precio, categoria, stock) {
+    constructor(id, storeId, nombre, descripcion, precio, categoria, stock) {
         this.id = id
+        this.storeId = storeId
         this.nombre = nombre
         this.descripcion = descripcion
         this.precio = precio
@@ -25,10 +26,10 @@ class Producto {
     }
 }
 
-class RegistroTienda {
-    constructor (usrId, id, nombre, giro, descripcion, telefono, correo) {
+class Tienda {
+    constructor (usrId, storeId, nombre, giro, descripcion, telefono, correo) {
         this.usrid = usrId
-        this.id = id
+        this.storeId = storeId
         this.nombre = nombre
         this.giro = giro
         this.descripcion = descripcion
