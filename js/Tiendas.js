@@ -13,7 +13,7 @@ function cardsTiendas() {
         listadoTiendas.innerHTML += 
                                 `<div class=tarjetasTienda>
                                 <div class="card" style="width: 18rem;">
-                                    <img src="Pictures/producto.webp" height="200px" width="200px" class="card-img-top" alt="...">
+                                    <img src="${Tienda.logo}" height="200px" width="200px" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">${Tienda.nombre}</h5>
                                         <p class="card-text">${Tienda.giro}</p>

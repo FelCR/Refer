@@ -191,6 +191,7 @@ const tiendas = [
         descripcion: "En esta tienda encontrarás los mejores artículos de deportes, desde pesas y baloneas hasta ropa deportiva, revisa nuestro catálogo",
         telefono: "5566778899",
         correo: "deportes@correo.com",
+        logo: "Pictures/logotienda1.png"
     },
     {
         usrid: 102939,
@@ -200,6 +201,7 @@ const tiendas = [
         descripcion: "Contamos con un catálogo muy completo en artículos de tecnología, busca los mejores gadgets en nuestro catalogo, estamos para servirte",
         telefono: "5566778899",
         correo: "tecnología@correo.com",
+        logo:"Pictures/logotienda2.svg"
     },
     {
         usrid: 102940,
@@ -209,6 +211,7 @@ const tiendas = [
         descripcion: "Los mejores artículos de repostería, encuentra los más deliciosos pasteles en nuestro catálogo, ponte en contacto para respostería bajo pedido para ese evento especial",
         telefono: "5566778899",
         correo: "pasteles@correo.com",
+        logo:"Pictures/logotienda3.png"
     },
     {
         usrid: 102941,
@@ -218,6 +221,7 @@ const tiendas = [
         descripcion: "Encuentra lo último en moda para dama y caballero, animate a conocer nuestras colecciones disponibles en nuestro catálogo para que te veas siempre a la moda",
         telefono: "5566778899",
         correo: "moda@correo.com",
+        logo:"Pictures/logotienda4.png"
     },
 ]
 const favoritos = []

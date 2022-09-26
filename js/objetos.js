@@ -27,7 +27,7 @@ class Producto {
 }
 
 class Tienda {
-    constructor (usrId, storeId, nombre, giro, descripcion, telefono, correo) {
+    constructor (usrId, storeId, nombre, giro, descripcion, telefono, correo, logo) {
         this.usrid = usrId
         this.storeId = storeId
         this.nombre = nombre
@@ -35,6 +35,7 @@ class Tienda {
         this.descripcion = descripcion
         this.telefono = telefono
         this.correo = correo
+        this.logo = logo
     }
 }
 

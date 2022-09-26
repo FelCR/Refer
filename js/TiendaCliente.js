@@ -1,5 +1,18 @@
 let objDetalleTienda = JSON.parse(localStorage.getItem("Tienda"))
 
+//---------------------------------- IMAGEN TIENDA ------------------------------------//
+function logoTiendaCliente(logoTienda) {
+    const {logo} = logoTienda
+    //console.log(descripcionTienda)
+    return `<img src="${logo}" height="200px" width="250px">`
+}
+// RECUPERAR CONTENIDO
+function recuperoLogo() {
+    //debugger
+                nombreTienda.innerHTML = logoTiendaCliente(objDetalleTienda)
+                console.table(objDetalleTienda)
+}
+recuperoLogo()
 
 //---------------------------------- PUBLICACIONES TIENDA CLIENTES ------------------------------------//
 

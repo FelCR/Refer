@@ -88,7 +88,7 @@ function confirmacionCompra(){
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="confirmarCompra">Confirmar</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="confirmarCompra" on onclick="VaciarCompra()">Confirmar</button>
                                       </div>
                                     </div>
                                   </div>
@@ -98,3 +98,16 @@ function confirmacionCompra(){
 }
 confirmacionCompra()
 botonConfirmarCompra.addEventListener(`click`,console.log("click"))
+
+function VaciarCompra() {
+  carrito.splice(0,carrito.length)
+  console.log(carrito)
+  carritoDeCompra.innerHTML=""
+  
+  const costoTotal = document.getElementById("costoTotal")
+  costoTotal.innerText = carrito.reduce((acc,prod) => acc + prod.cantidad*prod.precio, 0)
+  //confirmacionCompra()
+  renderizaCarrito()
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  Swal.fire('¡Gracias por tu compra!')
+}
