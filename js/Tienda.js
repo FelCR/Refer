@@ -3,6 +3,7 @@ const btndescTienda = document.querySelector("button.btn.btn-primary.btndescTien
 const btnPublicar = document.querySelector("button.btn.btn-primary.btnPublicar")
 const btnprodAdd = document.querySelector("button#botonAgregarProducto.btn.btn-primary")
 
+
 //---------------------- INICIA TIENDA EN LÍNEA ------------------------//
 
 function creoID() { return parseInt(Math.random() * 100000) }
@@ -119,7 +120,7 @@ function agregarProducto() {
             
             break
         }
-
+        localStorage.setItem("Producto", JSON.stringify(listaTienda));
         //listaTienda.reverse()
         listaTienda.forEach(Producto => {
             listadoProductos.innerHTML += 
@@ -143,6 +144,7 @@ function agregarProducto() {
     Swal.fire('Producto agregado con éxito')
     funcionalidad();  
     displayProductos();
+    
 
    /* document.querySelector("input.form-control.nombreProd").value=""
     document.querySelector("input.form-control.descProd").value=""
@@ -213,25 +215,26 @@ function eliminarProd(e) {
 
     
 })
+localStorage.setItem("Producto", JSON.stringify(listaTienda));
 funcionalidad()
 displayProductos()
 Swal.fire('Producto eliminado')
 }
 
 //---------------------------------- DISPLAY DE PRODUCTOS EN INICIO DE LA TIENDA ----------------------------------//
-
 function displayProductos() {
-    //debugger
+    let productosTiendaBE = JSON.parse(localStorage.getItem("Producto"))
+    //console.table(productosTiendaBE)
     const productoPortada = document.querySelector("#productoPortada");
     
-    let lengthListaTienda = listaTienda.length
+    let lengthListaTienda = productosTiendaBE.length
     console.log(lengthListaTienda)
     //console.log(productoPortada)
     
     if(lengthListaTienda>4){
-    let iniLista = listaTienda.length-4
-    let finLista = listaTienda.length+1
-    let listaEnTienda = listaTienda.slice(iniLista, finLista)
+    let iniLista = productosTiendaBE.length-4
+    let finLista = productosTiendaBE.length+1
+    let listaEnTienda = productosTiendaBE.slice(iniLista, finLista)
     //console.table(listaEnTienda)
     
     productoPortada.innerHTML=""
@@ -252,7 +255,7 @@ function displayProductos() {
     //debugger
     console.log(productoPortada)
     productoPortada.innerHTML=""
-    listaTienda.forEach(Producto => {
+    productosTiendaBE.forEach(Producto => {
         productoPortada.innerHTML += 
                                 `<div class=tarjetasTienda>
                                 <div class="card" style="width: 18rem;">
@@ -272,13 +275,28 @@ displayProductos()
 
 //------------------------------ EDITAR LA DESCRIPCIÓN DE LA TIENDA ---------------------------//
 
+function descTiendaBE() {
+    let descripcionTiendaAdmin = JSON.parse(localStorage.getItem("Descripcion"))
+    console.log(descripcionTiendaAdmin)
+    if(descripcionTiendaAdmin){
+        const descripTiendaAdmin = document.getElementById("descTienda")
+        descripTiendaAdmin.innerHTML =
+                    `<p class=descripcion>${descripcionTiendaAdmin}</p>`
+    }else{
+        const descripTiendaAdmin = document.getElementById("descTienda")
+        descripTiendaAdmin.innerHTML ="" 
+    }
+}
+descTiendaBE()
+
 function descTienda() {
+    
     let descpripcion = document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value
     const descripTienda = document.getElementById("descTienda")
     descripTienda.innerHTML =
                     `<p class=descripcion>${descpripcion}</p>`
+    localStorage.setItem("Descripcion", JSON.stringify(document.querySelector("textarea#exampleFormControlTextarea1.form-control.descContentTienda").value));
 }
-
 btndescTienda.addEventListener(("click"), descTienda)
 
 //----------------------------- FUNCION PARA CREAR PUBLICACIONES -------------------------------//
@@ -302,13 +320,15 @@ function publicar() {
                             </div>`
 }) 
 displayPublicaciones()
+localStorage.setItem("Publicacion", JSON.stringify(publicaciones));
 }
 btnPublicar.addEventListener(("click"), publicar)
 
 
 function postear() {
+    let publicacionesTienda = JSON.parse(localStorage.getItem("Publicacion"))
     publiTienda.innerHTML=""
-    publicaciones.forEach(Publicacion => {
+    publicacionesTienda.forEach(Publicacion => {
         publiTienda.innerHTML += 
                              `<div class="card cardPublicacion">
                              <div class="card-body">
@@ -342,7 +362,8 @@ function displayPublicaciones() {
                              </div>
                              <img src="Pictures/tienda.jpg" class="card-img-bottom" alt="...">
                            </div>`
-}) 
+})
+ 
 }
 
 displayPublicaciones()

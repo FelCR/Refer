@@ -213,12 +213,36 @@
   font-size: 20px;
 }
 
+#descTiendaUsr {
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  text-align: justify;
+  font-size: 20px;
+}
+
 .tarjetasTienda {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 #publiTienda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#publiTiendaCliente {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,7 +353,62 @@ footer {
           flex-direction: row-reverse;
 }
 
+#productoPortadaUsr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+#listadoProductosUsr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
 #publicacionesPortada {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse wrap;
+          flex-flow: row-reverse wrap;
+}
+
+#publicacionesPortadaUsr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -445,6 +524,21 @@ footer {
 
 .cardDesc {
   text-align: justify;
+}
+
+#listadoTiendas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: auto;
+  width: 95%;
+  margin-left: 25px;
+  margin-bottom: 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 /*------------------->> RESPONSIVIDAD <<--------------------*/

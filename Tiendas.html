@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Carrito</title>
+    <title>Tiendas</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="js/objetos.js"></script>
     <script defer src="js/arreglos.js"></script>
     <script defer src="js/variables.js"></script>
-    <script defer src="js/carrito.js"></script>
-    <!--<script defer src="js/funciones.js"></script>-->
+    <script defer src="js/funciones.js"></script>
+    <!--<script defer src="js/funcionesIndex.js"></script>-->
+    <script defer src="js/Tiendas.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +33,7 @@
 
 <body>
   <header id="headerIndex">
-    <h1 class="logoRef"role="button" onclick="linkIndex()">
+    <h1 class="logoRef"role="button" onclick="linkIndex()"><script> const linkIndex = () => {location.href = "Index.html"} </script>
       Refer</h1>
     <div class="menuPrincipal">
         <nav class="navPerfil">
@@ -58,7 +59,6 @@
     <div class="botonCarrito"><a href="Carrito.html"><img src="Pictures/carrito.png" height="35px" width="35px"></a></div>
     <nav class="navIndex">
         <!--<div class="botonMenu">Categorias</div>-->
-        <div class="botonMenu btnIndex" role="button" onclick="linkIndex()">Inicio</div> <script> const linkIndex = () => {location.href = "Index.html"} </script>
         <a class="nav-link dropdown-toggle botonMenu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
           </a>
@@ -98,36 +98,13 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
-        </div><br><br>
-        
-        <div class="tituloTienda"><h2>Carrito</h2></div>
-                  <div class="tablaCarrito">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Total</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody  id="carritoDeCompra">
-                      
-                    </tbody>
-                    
-                  </table>
-                  <div class="total"><h2>Total: $<span id="costoTotal">0</span></h2>
-                  
-                    <div id="confirmarLaCompra">
-                     
-                  </div>
-                  <div><button type="button" class="btn btn-danger" id="vaciarCarrito">Vaciar</button></div>
-                  </div>
-                  </div>
-        
+        </div>
+      </div>
+      <div id="descTienda"></div>
+      <div class="tituloTienda"><h2>Tiendas</h2></div>
+      <div id="listadoTiendas"></div>
     </section>
+
 
     <footer>
 

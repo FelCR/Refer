@@ -11,7 +11,6 @@ const usuarios = [
 ]
 const categorias = []
 let listaTienda = [
-    /*
     {
         id:1234,
         nombre:"Producto 1",
@@ -107,7 +106,7 @@ let listaTienda = [
         precio:500,
         categoria:"Tecnología",
         stock:1
-    }*/
+    }
 
 ]
 let listaEnTienda = []
@@ -138,7 +137,7 @@ const libros = []
 const tiendas = [
     {
         usrid: 102938,
-        id: 334455,
+        storeId: 334455,
         nombre: "Tienda 1",
         giro: "Deportes",
         descripcion: "En esta tienda encontrarás los mejores artículos de deportes, desde pesas y baloneas hasta ropa deportiva, revisa nuestro catálogo",
@@ -147,7 +146,7 @@ const tiendas = [
     },
     {
         usrid: 102939,
-        id: 334466,
+        storeId: 334466,
         nombre: "Tienda 2",
         giro: "Tecnologia",
         descripcion: "Contamos con un catálogo muy completo en artículos de tecnología, busca los mejores gadgets en nuestro catalogo, estamos para servirte",
@@ -156,7 +155,7 @@ const tiendas = [
     },
     {
         usrid: 102940,
-        id: 334477,
+        storeId: 334477,
         nombre: "Tienda 3",
         giro: "Alimentos",
         descripcion: "Los mejores artículos de repostería, encuentra los más deliciosos pasteles en nuestro catálogo, ponte en contacto para respostería bajo pedido para ese evento especial",
@@ -165,7 +164,7 @@ const tiendas = [
     },
     {
         usrid: 102941,
-        id: 334488,
+        storeId: 334488,
         nombre: "Tienda 4",
         giro: "Moda",
         descripcion: "Encuentra lo último en moda para dama y caballero, animate a conocer nuestras colecciones disponibles en nuestro catálogo para que te veas siempre a la moda",

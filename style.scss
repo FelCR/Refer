@@ -183,12 +183,30 @@
     font-size: 20px;
 }
 
+#descTiendaUsr {
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    text-align: justify;
+    font-size: 20px;
+}
+
 .tarjetasTienda {
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
 #publiTienda{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+#publiTiendaCliente {
     display: flex;
     justify-content: space-evenly;
     height: auto;
@@ -226,6 +244,7 @@
     align-self: center;
     margin-top: 100px;
 }
+
 
 .categorias {
     display: flex;
@@ -279,7 +298,41 @@ footer {
     flex-direction: row-reverse;
 }
 
+#productoPortadaUsr {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    
+}
+#listadoProductosUsr{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
 #publicacionesPortada {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    //flex-wrap: wrap;
+    //flex-direction: row-reverse;
+    flex-flow: row-reverse wrap;
+}
+
+#publicacionesPortadaUsr {
     display: flex;
     justify-content: space-evenly;
     height: auto;
@@ -367,6 +420,15 @@ footer {
     text-align: justify;
 }
 
+#listadoTiendas {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    width: 95%;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
 
 /*------------------->> RESPONSIVIDAD <<--------------------*/
 @media (max-width: 360px) {
