@@ -3,12 +3,16 @@ const btnEliminarCarrito = document.querySelector("button.btn.btn-primary.btnEli
 const botonVaciar = document.getElementById("vaciarCarrito")
 const botonConfirmarCompra = document.getElementById("confirmarCompra")
 //const btnConfirmarCompra = document.getElementById("confirmarCompra")
+const iva = 1.16
+const btnAddCarrito = document.querySelector("button.btn.btn-primary.btnAddCarrito")
+
+const navPerfilCar = document.querySelector(".navPerfilCar");
+const infoPerfilCar = document.querySelector(".infoPerfilCar");
+let infoLogUsr = JSON.parse(sessionStorage.getItem("logUsr"))
 
 function cargarCarrito() {
     carrito = JSON.parse(localStorage.getItem("carrito"))
-    
 }
-
 cargarCarrito()
 
 function renderizaCarrito(){
@@ -96,6 +100,51 @@ function confirmacionCompra(){
     }
   
 }
+
+//------------------------ INFO DE PERFIL ----------------------------//
+
+function retornoInfoPerfil(logUsrCar) {
+  //debugger
+  const {usrid, usrName, usrApellido, usrEdad, usrTelefono, usrCorreo, usrPass} = logUsrCar 
+  return `<div class="offcanvas offcanvas-end data-bs-scroll=true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+              <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"">${usrName} ${usrApellido}</h5> <img src="Pictures/perfil.png" height="45px" width="45px">
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+              <div class="botonMenuPerfil">Tiendas</div>
+              <div class="botonMenuPerfil">Contactos</div>
+              <div class="botonMenuPerfil">Compras</div>
+              <div class="botonMenuPerfil" onclick="cerrarSesion()" role="button">Cerrar sesión</div>
+              </div>
+          </div>`
+}
+
+function cargarUsrCar() {
+  
+  if (infoLogUsr) {
+      debugger
+              navPerfilCar.innerHTML = `<div class="menuPerfil infoPerfil" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                      <div ><img src="Pictures/Perfil.png" height="35px" width="35px" role="button"></div>
+                                      </div>`
+              infoPerfilCar.innerHTML = retornoInfoPerfil(infoLogUsr)
+              //console.table(infoLogUsr)
+  }else{
+    navPerfilCar.innerHTML = `<div class="menuPerfil infoPerfil" role="button" onclick="cerrarSesion()">
+    <p>Iniciar Sesión</p>
+    </div>`
+}
+}
+cargarUsrCar()
+
+function cerrarSesion() {
+  sessionStorage.removeItem("logUsr");
+  let infoLogUsr = JSON.parse(sessionStorage.getItem("logUsr"));
+  console.log(infoLogUsr)
+  location.href = "Portada.html";
+}
+
+//---------------------------- CONFIRMAR COMPRA -------------------------//
 confirmacionCompra()
 botonConfirmarCompra.addEventListener(`click`,console.log("click"))
 
@@ -111,3 +160,4 @@ function VaciarCompra() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
   Swal.fire('¡Gracias por tu compra!')
 }
+

@@ -1,12 +1,12 @@
 const usuarios = [
     {
-        usrid: 102938,
-        nombre: "Felipe",
-        apellido: "Cabañas",
-        fechaNacimiento: "27-02-1989",
-        telefono: 5566778899,
-        correo: "fel_277@hotmail.com",
-        pass: 12345,
+        usrId: 102938,
+        usrName: "Felipe",
+        usrApellido: "Cabañas",
+        usrEdad: "27-02-1989",
+        usrTelefono: 5566778899,
+        usrCorreo: "fel_277@hotmail.com",
+        usrPass: 12345,
     }
 ]
 const categorias = []

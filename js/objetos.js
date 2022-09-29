@@ -1,7 +1,7 @@
 class RegistroUsuario {
-    constructor (id, nombre, apellido, fechaNacimiento, telefono, correo, pass) {
+    constructor (id, usrName, apellido, fechaNacimiento, telefono, correo, pass) {
         this.usrid = id
-        this.nombre = nombre
+        this.usrName = usrName
         this.apellido = apellido
         this.fechaNacimiento = fechaNacimiento
         this.telefono = telefono

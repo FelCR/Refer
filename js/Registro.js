@@ -1,3 +1,9 @@
+const btnLogUsuario = document.getElementById("btnLogIn")
+const btnUsrReg = document.querySelector("button.btn.btn-primary.btn-UsrReg")
+
+
+
+
 function usrID() { return parseInt(Math.random() * 100000) }
 
 
@@ -31,21 +37,21 @@ document.querySelector(".usrTelefono").value = ""
 document.querySelector(".usrCorreo").value = ""
 document.querySelector(".usrPass").value = ""
 }
-btnUsrReg.addEventListener("click", registro)
+//btnUsrReg.addEventListener("click", registro)
 
 function iniciarSesion() {
     let usuario = document.querySelector(".correoLogIn").value
     let contrasena = document.querySelector(".passLogIn").value
-    //debugger
-    const pase1 = usuarios.filter((RegistroUsuario) => RegistroUsuario.correo == usuario)
-    const pase2 = pase1.some((pase1) => pase1.pass == contrasena)
+    let pase1 = usuarios.filter((RegistroUsuario) => RegistroUsuario.usrCorreo == usuario);
+    let pase2 = pase1.find((pase1) => pase1.usrPass == contrasena);
 
     if (pase2) {
-        location.href = "Index.html"
-        //window.location.assign("Index.html")
+        //debugger
+        sessionStorage.setItem("logUsr", JSON.stringify(pase2));
+        location.href = "Index.html";
         alert("Bienvenido")
     }else {
-        alert("No encontramos sus datos, lo invitamos a registrarse")
+        alert("No encontramos sus datos, lo invitamos a registrarse");
 }
 }
         

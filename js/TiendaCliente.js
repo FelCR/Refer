@@ -1,4 +1,7 @@
 let objDetalleTienda = JSON.parse(localStorage.getItem("Tienda"))
+const navPerfilTiendaC = document.querySelector(".navPerfilTiendaC");
+const infoPerfilTiendaC = document.querySelector(".infoPerfilTiendaC");
+let infoLogUsr = JSON.parse(sessionStorage.getItem("logUsr"));
 
 //---------------------------------- IMAGEN TIENDA ------------------------------------//
 function logoTiendaCliente(logoTienda) {
@@ -32,8 +35,8 @@ function publicacionTiendaCliente() {
                             </div>`
 }) 
     }else{
-        const descripTienda = document.getElementById("descTiendaUsr")
-        descripTienda.innerHTML ="" 
+        //const descripTienda = document.getElementById("descTiendaUsr")
+        //descripTienda.innerHTML ="" 
     }
 }
 publicacionTiendaCliente()
@@ -171,3 +174,45 @@ const guardarContenidoEnLS = (id) => {
         console.log("guardar contenido en LS")  
 }
 
+//------------------------ INFO DE PERFIL ----------------------------//
+
+function retornoInfoPerfil(logUsrTiendaC) {
+    //debugger
+    const {usrid, usrName, usrApellido, usrEdad, usrTelefono, usrCorreo, usrPass} = logUsrTiendaC
+    return `<div class="offcanvas offcanvas-end data-bs-scroll=true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"">${usrName} ${usrApellido}</h5> <img src="Pictures/perfil.png" height="45px" width="45px">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <div class="botonMenuPerfil">Tiendas</div>
+                <div class="botonMenuPerfil">Contactos</div>
+                <div class="botonMenuPerfil">Compras</div>
+                <div class="botonMenuPerfil" onclick="cerrarSesion()" role="button">Cerrar sesión</div>
+                </div>
+            </div>`
+  }
+  
+  function cargarUsrTiendaC() {
+    
+    if (infoLogUsr) {
+        debugger
+                navPerfilTiendaC.innerHTML = `<div class="menuPerfil infoPerfil" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                        <div ><img src="Pictures/Perfil.png" height="35px" width="35px" role="button"></div>
+                                        </div>`
+                infoPerfilTiendaC.innerHTML = retornoInfoPerfil(infoLogUsr)
+                //console.table(infoLogUsr)
+    }else{
+        navPerfilTiendaC.innerHTML = `<div class="menuPerfil infoPerfil" role="button" onclick="cerrarSesion()">
+        <p>Iniciar Sesión</p>
+        </div>`
+    }
+  }
+  cargarUsrTiendaC()
+
+  function cerrarSesion() {
+    sessionStorage.removeItem("logUsr");
+    let infoLogUsr = JSON.parse(sessionStorage.getItem("logUsr"));
+    console.log(infoLogUsr)
+    location.href = "Portada.html";
+}
